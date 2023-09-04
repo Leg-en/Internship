@@ -1,0 +1,13 @@
+# Tag 1 - 04.09.2023
+- GD NRW
+  - Packagen des Java Projekts zur War und deployment auf dem Tomcat
+    - Noch nicht fertig, aber viel ausprobiert und recherchiert
+  - Basic Implementierung des ShoppingCarts
+    - Noch nicht fertig, aber ein guter ansatz
+    - Teilen ist das größte fehlende feature
+    - Die idee die slots zu verwenden lässt sich evtl auf das Multiediting übertragen
+- "Einführungs" Meetings
+  - Weekly Standup
+  - Bi-Weekly Teammeeting
+    - Ich habe mich dazu bereit erklärt auch mal zu moderieren
+  - Erstgespräch mit Thore
