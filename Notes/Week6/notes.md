@@ -1,0 +1,24 @@
+# Notizen - 12.12.2023
+- Komponentendiagramm aus Konzept fortführen (bzw leicht anpassen) 
+  - Enterprise Architect
+- Konzept "basiert" auf Arc42
+- Ursprungsidee: 1 System für alles
+  - Neue Idee: 2 Getrennte Systeme
+    - IT NRW hostet öffentliche daten mit reduzierter Instant (Leicht erweiterter SFSDI)
+    - GD NRW hostet alles, auch sensible daten
+- Deploymentdiagramm im optimalfall aus Konzept entnehmen (sobald es erstellt wurde, ansonsten selbst erstellen) 
+- Laufzeitdiagramm begrenzt sinnvoll 
+  - Mit ausnahmen, z.b.
+    - Push zwischen den beiden system
+- Use Case Diagramm im Konzept 
+  - auch mit Enterprise Archtitect
+    - -> Anpassen und übernehmen 
+      - "Share with" - wurde nie ausdefiniert
+      - Es reicht 1 authorized user
+      - Authorized user ist auch user
+    - GD Intern (GD DATEN || ISO)-> IT NRW Systen (GD DATEN || ISO) -> Geoportal NRW (ISO) -> Open NRW (DCAT-AP.de (Geerbt von DCAT AP))
+      - Sollte auch in deployment diagramm sichtbar sein
+      - DCAT-AP ist eu finanzierter standard
+        - DCAT-Ap.de ist die deutsche version
+      - ISO -> DCAT-AP.de ist "con terra technologie" (bei fragen an Jan wenden)
+  
