@@ -1,0 +1,59 @@
+\documentclass[11pt, titlepage, a4paper]{article}
+
+\usepackage{graphicx} % For images
+
+\usepackage[utf8]{inputenc} % For special characters
+\usepackage[english]{babel} % For language-specific hyphenation patterns
+\usepackage[hidelinks]{hyperref} % For clickable links
+\usepackage{enumitem}
+\usepackage[]{datetime2}
+\usepackage[a4paper, total={15.0cm, 25cm}]{geometry}
+\usepackage[backend=biber, style=ieee, sorting=none]{biblatex}
+\addbibresource{Internship.bib} % Imports bibliography file+
+\def\labelitemi{--}
+
+\title{Internship Report}
+\author{Emily Sterthaus \\ Matriculation Number: 451 342 \\ \href{mailto:m_ster15@uni-muenster.de}{m\_ster15@uni-muenster.de}\\ \\
+\small Ifgi Supervisor: Christian Knoth\\ \small con terra Supervisor: Thore Fechner
+}
+\date{\today}
+
+\begin{document}
+
+
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+My Internship were at the con terra Münster. It started 2023-09-01 and ended 2024-03-31.
+\subsection{Company Profile}
+The con terra is a Geo IT Company Located in Münster, Germany. It developes primarily custom GeoIT Solutions, based on the Feature Manipulation Engine (FME) and various Esri Technologies, such as ArcGIS. Therefore the con terra is Esri Platinum Partner and the main distribution Partner from Safe Software for FME. 
+
+Based on this, the con terra also provides their own products, such as map.apps and smart.finder. Each with multiple different addons and configurations, for example smart.finder - SDI or map.apps ETL. Their also working on a open source Framework as an alternative, called Open Pioneer.   %Todo: Hierüber muss ich drignend mit thore sprechen ob das so passt
+
+The con terra works for multiple different company and governmental Organizations, such as TenneT TSO,  Geologischer Dienst NRW, IT.NRW or the Bundesanstalt für Geowissenschaften und Rohstoffe  (BGR). 
+
+\subsection{Motivation}
+
+%Todo: Irgendeine begrüdung finden die weder geld noch "kenn ich schon" ist 
+
+\section{Internship Content}
+
+My internship was clearly structured. This took the form three different Projects, each in their own timeframe and with their own requirements. 
+
+\subsection{Geologischer Dienst NRW - Metdata Asset Managment System}
+\subsubsection{Introduction}
+The Geologischer Dienst NRW has a large achieve of different assets. Assets in this contexts are primarily digital Photos, Documents or similar data. Currently they use a system named Cumulus and the Filesystem of the OS to manage the data and the associated metadata. This will now change as it is required to make all data, where it is legally possible, open data \cite{GesetzZurForderung2017}.
+Additionally the GeolDG also requreis the Geologischer Dienst to make their data Available \cite{GesetzZurStaatlichen}.
+\subsection{Digitalzer Zwilling - Fire Department Live Data}
+\subsection{Open Pioneer - TBA}
+\section{Reflection}
+
+\clearpage
+\printbibliography
+
+\end{document}
