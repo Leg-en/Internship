@@ -34,13 +34,13 @@
   keywordstyle=\color{pblue},
   stringstyle=\color{pred},
   basicstyle=\ttfamily,
-  %moredelim=[il][\textcolor{pgrey}]{$$},
+  moredelim=[il][\textcolor{pgrey}]{},
   moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
 }
 
 \title{Internship Report}
 \author{Emily Sterthaus \\ Matriculation Number: 451 342 \\ \href{mailto:m_ster15@uni-muenster.de}{m\_ster15@uni-muenster.de}\\ \\
-\small Ifgi Supervisor: Christian Knoth\\ \small con terra Supervisor: Thore Fechner
+\small Ifgi Supervisor: \href{mailto:christian.knoth@uni-muenster.de}{Christian Knoth}\\ \small con terra Supervisor: \href{mailto:t.fechner@conterra.de}{Thore Fechner}
 }
 \date{\today}
 \newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
@@ -65,15 +65,14 @@
 
 My Internship was done at the con terra Münster. It started 2023-09-01 and ended 2024-03-31.
 \subsection{Company Profile}
-The con terra is a Geo IT Company Located in Münster, Germany. It developes primarily custom GeoIT Solutions, based on the Feature Manipulation Engine (FME) and various Esri Technologies, such as ArcGIS. Therefore the con terra is Esri Platinum Partner and the main distribution Partner from Safe Software for FME.
+con terra is a geo-IT company based in Münster, Germany. The company primarily develops customer-specific GeoIT solutions based on the Feature Manipulation Engine (FME) and various Esri technologies, such as ArcGIS. For this reason, con terra is an Esri Platinum Partner and the main distribution partner of Safe Software for FME.
 
-Based on this, the con terra also provides their own products, such as map.apps and smart.finder. Each with multiple different addons and configurations, for example smart.finder - SDI or map.apps ETL. Their also working on a open source Framework as an alternative, called Open Pioneer.   %Todo: Hierüber muss ich drignend mit thore sprechen ob das so passt
+On this basis, con terra also offers its own products, such as map.apps and smart.finder. Each with several different add-ons and configurations, for example smart.finder - SDI or map.apps ETL. As an alternative, they are also working on an open source framework called Open Pioneer.  %Todo: Hierüber muss ich drignend mit thore sprechen ob das so passt
 
 The con terra works with multiple different company and governmental Organizations, such as TenneT TSO,  \glsxtrfull {gd} NRW, IT.NRW or the Bundesanstalt für Geowissenschaften und Rohstoffe  (BGR).
 
 \subsection{Motivation}
-
-%Todo: Irgendeine begrüdung finden die weder geld noch "kenn ich schon" ist 
+I chose Con Terra for several reasons. Firstly, because it is a well-known software company. It develops its own software and creates customised solutions, which was ideal as I wanted to deepen my knowledge of software development. Other factors were the flexibility of the working hours and the fact that I had already worked there as a student assistant.
 
 \section{Internship Content}
 
@@ -87,9 +86,9 @@ Additionally the GeolDG also requires the \glsxtrshort{gd} to make their accessi
 
 Therefore the main goal of this project was to conceptualize a new system and to implement parallel a prototype of it.
 \subsubsection{As-is Status}
-The digital archive of the  \glsxtrshort{gd} consists of over 450 thousand Assets. Assets in this context are for example Images, PDFs, TIFs or MP4s. But each digital file can be an asset. The total data volume is over 2 Terrabyte.
-These assets are currently on a shared drive and can be managed via the filesystem. Additionally they use a software called Cumulus. This software manages primarily the associated asset metadata. Currently the \glsxtrshort{gd} does not use any well known Metadata schema, instead they use a list of custom attributes, e.g. Rating, Special Instructions and Label.
-Additionally they use \glsxtrshort{exif} and \glsxtrshort{iptc} Metadata Information for Images, which is not managed by the Cumulus. Instead it its done with an additional software component. %Likely Irfanview 
+The \glsxtrshort{gd} digital archive contains over 450,000 assets. Assets in this context are for example images, PDFs, TIFs or MP4s. However, any digital file can be an asset. The total data volume is over 2 terabytes.
+These assets are currently located on a shared drive and can be managed via the file system. They also use a piece of software called Cumulus. This software primarily manages the metadata associated with the assets. Currently, the \glsxtrshort{gd} does not use any known metadata schema, but instead uses a list of custom attributes, such as Rating, Special Instructions and Label.
+They also use \glsxtrshort{exif} and \glsxtrshort{iptc} metadata information for images, which is not managed by Cumulus. Instead, this is done with an additional software component. %Likely Irfanview 
 
 \subsubsection{The new system}
 The new system exists maninly as a concept. But a few features were already implemented as a prototype for the \glsxtrshort{gd} to test them.
@@ -111,16 +110,15 @@ The new system should eliminate the inadequacies of the old system. Therefore a 
 
 
 \begin{figure}[t]
-	\caption{Use case diagram, which visualized a some functional requirements}
+	\caption{Use case diagram, which visualized some functional requirements}
 	\label{fig:usecase}
 	\includegraphics[width=16cm]{usecase_diagramm.png}
 	\centering
 \end{figure}
 
+In addition, there are a number of quality requirements that focus primarily on data integrity and the tech stack used for development. For example, the software developed should be able to live in the cloud or on a dedicated machine.
 
-Additionally there are a few Quality Requirements, primarily focusing on data integrity and the used techstack for the developement. For example the developed software should be able to live in the cloud or in dedicated Machine.
-
-One final requirement is that the system needs to be splitted. It should run mainly on the servers from IT.NRW. But only non-sensitive data should be on hosted by them. Sensitive data should  be hosted and only accessible by the \glsxtrshort{gd} and its associates. 
+A final requirement is that the system needs to be split. It should mainly run on the servers of IT.NRW. But only non-sensitive data should be hosted there. Sensitive data should be hosted and only accessible by the \glsxtrshort{gd} and its staff.
 
 \myparagraph{Implementation}
 To meet these new Requirements the smart.finder SDI was choosen as base software. As it can not meet all requirements standalone (for example it can only work with ISO 19115/ISO 19119, INPSIRE or GDI DE Metadata) new software components were conceptualized and implemented to meet the designated requirements.
@@ -157,8 +155,8 @@ To save these \glsxtrshort{gd} specific attributes, there is also a new database
 	\centering
 \end{figure}
 
-To meet the requirement regarding the hosting of sensitive data, a deployment diagramm was created \ref{fig:deployment}. To achieve the goal there are now two datastores which can be inplace switched. This is necessary to give authorized users access to sensitive data. The metadata in this case is still completely hosted by IT.NRW but may be locked behind an login and is therefore not available by the public. The aim of this configuration is to duplicate as few services as possible.
-An alternative was to build complete clone system for IT.NRW and \glsxtrshort{gd} and only synchronize the open access datasets.
+As part of the planning, a deployment diagram was created \ref{fig:deployment}. To achieve the goal of splitting the data between two hosts, there are now two datastores that can be switched in place. This is necessary to allow authorised users to access sensitive data. The metadata is still completely hosted by IT.NRW, but can be locked behind a login and is therefore not available to the public. The aim of this configuration is to duplicate as few services as possible.
+An alternative was to build a complete clone system for IT.NRW and \glsxtrshort{gd} and only synchronise the open access datasets.
 
 \subsubsection{My Participation}
 My participation in this project was primarily the developement of the new software components for a prototype. Additionally i made modified the smartfinder-sdi. 
@@ -170,8 +168,10 @@ My participation in this project was primarily the developement of the new softw
 	\centering
 \end{figure}
 
-The first prototype started as a simple project based on FastAPI and Python. With a addtional PostgreSQL database. Primarily the focus at this time was to develope a database schema which fullfills our needs. The final scheme is visible in Graphic \ref{fig:db}. It was choosen to use a flat structure without N-M relationships. 
-Also the first version for the frontend was developed by me. As a tech stack it was choosen to use Vue and Vuetify, with a Vite developement server. The main vue components i developed were a Single Editing, for editing a single Metadaset, and a Multi-Edit for editing an arbitrary number, greater 1, of Metadatasets. For the single editing i became later on a Mockup as a template, on which it is based. The Multi-Editing was meanwhile designed and conceptualized by me, as seen in \ref{fig:multiedit}. 
+The initial prototype commenced as a basic project employing FastAPI and Python. It also integrated an added PostgreSQL database. The principal objective was to construct a database schema tailored to our requirements. The ultimate configuration is depicted in Graphic \ref{fig:db}. We opted for a flat structure with no N-M relationships. 
+Also, I designed the frontend. Our technological stack consisted of Vue and Vuetify, with the inclusion of a Vite development server. The primary Vue components that I developed include Single Editing for modifying a single Metadataset and Multi-Edit for modifying multiple Metadatasets greater than one. To create Single Editing, I used a mockup as a template to base my development on. I designed and conceptualised Multi-Editing myself, as demonstrated in figure \ref{fig:multiedit}.  
+
+Later on in the project, I developed an additional front-end for a shopping cart, which serves as an intermediary website between the Smartfinder and the new components. Moreover, I developed a front-end for the administrator to configure various attributes for editing.
 
 \begin{figure}[t]
 	\caption{Screenshot MultiEditing}
@@ -180,9 +180,9 @@ Also the first version for the frontend was developed by me. As a tech stack it 
 	\centering
 \end{figure}
 \begin{figure}[t]
-	\caption{Vue Controller}
+	\caption{Vue Java Controller}
 	\label{fig:vue}
-	\begin{lstlisting}[language=java]
+	\begin{lstlisting}[language=java, frame=single]
         @Controller
         public class VueController {
             @RequestMapping(value = "/*/{path:[^\\.]*}")
@@ -198,14 +198,17 @@ Also the first version for the frontend was developed by me. As a tech stack it 
 \end{figure}
 
 
-After that it was quickly decided to drop Python and FastAPI in favor of Spring Boot and Java. Therefore i started to write the gd-nrw-dam component, which is currently gd-nrw-datastore component. It started with implementing the necessary spring data classes and interfaces. After that i started implementing the basic endpoints for updates, to regain functionality for my frontend. Also i added the capabilites to host the build frontend by the spring boot server. For that i wrote a Spring Boot special controller to keep the Vue Router Component from the frontend working, as it controls the routing for which page is loaded. 
+After that, a decision was made to drop Python and FastAPI in favour of Spring Boot and Java. Therefore, I have commenced composing the gd-nrw-dam module. The gd-nrw-datastore module is integrated into the prototype of the gd-nrw-dam module. This began by implementing the required Spring Data classes and interfaces, followed by Afterwards, I began implementing the fundamental endpoints for CRUD operations to restore functionality to my frontend. Additionally, the capacities to host the built front-end on the Spring Boot server were incorporated. I developed a special Spring Boot controller to keep the Vue router component of the frontend working, as it controls the routing for which page is loaded. The code for this can be found in \ref{fig:vue}. It should be noted that any requests that match the applied regex pattern will be directed to the Vue Router.
+
+Following that, I developed an Azure build pipeline for automated deployment on our test system.  To achieve this, I restructured the project into two separate components: the frontend and the backend, each with its own pom.xml file. Additionally, there is a pom file for the entire project, enabling Maven to build the project with the complete frontend included in the backend for the pipeline. The tomcat-maven-plugin was then used for deployment to our test machine.
+
+Later, I developed the Sfsdi-API component, which serves as the predecessor to the gd-nrw-API. It is a Spring Boot application that accesses the Smartfinder-Search component and modifies its Solr database.
+
+Finally, I have developed several complex features, including thumbnail generation for images and PDFs, on-the-fly zipped group downloads, \glsxtrshort{iptc}/\glsxtrshort{exif} read and write capabilities, and the deployment of a Redis Instance for fast and secure storage. These addition will facilitate the transition from the smartfinder to the new components.
 
 
 
-
-
-
-\subsection{Digitaler Zwilling - Fire Department Live Data}
+\subsection{Digitaler Zwilling Gefahr- Fire Department Live Data}
 \subsection{Open Pioneer - TBA}
 \section{Reflection}
 
