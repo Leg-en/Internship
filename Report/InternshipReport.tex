@@ -9,7 +9,7 @@
 \usepackage[hidelinks]{hyperref} % For clickable links
 \usepackage{enumitem}
 \usepackage[]{datetime2}
-\usepackage[a4paper, total={15.0cm, 25cm}]{geometry}
+\usepackage[a4paper, total={17.5cm, 25cm}]{geometry}
 \usepackage[backend=biber, style=ieee, sorting=none]{biblatex}
 \addbibresource{Internship.bib} % Imports bibliography file+
 \def\labelitemi{--}
@@ -37,6 +37,8 @@
   moredelim=[il][\textcolor{pgrey}]{},
   moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
 }
+
+
 
 \title{Internship Report}
 \author{Emily Sterthaus \\ Matriculation Number: 451 342 \\ \href{mailto:m_ster15@uni-muenster.de}{m\_ster15@uni-muenster.de}\\ \\
@@ -100,7 +102,7 @@ The new system should eliminate the inadequacies of the old system. Therefore a 
 	\item CRUD Operations for Datasets and associated metadata
 	      \begin{itemize}
 		      \item With an Integrated Permission System for Internal (\glsxtrshort{gd} Employees) and Externals
-		      \item Multi-Edit for Metadata
+		      \item (Multi-)Edit Interface for Metadata
 	      \end{itemize}
 	\item Sharing data
 	\item Update \glsxtrshort{exif} and \glsxtrshort{iptc} when an update occurs
@@ -121,7 +123,7 @@ In addition, there are a number of quality requirements that focus primarily on 
 A final requirement is that the system needs to be split. It should mainly run on the servers of IT.NRW. But only non-sensitive data should be hosted there. Sensitive data should be hosted and only accessible by the \glsxtrshort{gd} and its staff.
 
 \myparagraph{Implementation}
-To meet these new Requirements the smart.finder SDI was choosen as base software. As it can not meet all requirements standalone (for example it can only work with ISO 19115/ISO 19119, INPSIRE or GDI DE Metadata) new software components were conceptualized and implemented to meet the designated requirements.
+To meet these Requirements the smart.finder SDI was choosen as base software. As it can not meet all requirements standalone (for example it can only work with ISO 19115/ISO 19119, INPSIRE or GDI DE Metadata) new software components were conceptualized and implemented to meet the designated requirements.
 
 \begin{figure}[t]
 	\caption{Planned software components (partial abstracted)}
@@ -133,17 +135,17 @@ To meet these new Requirements the smart.finder SDI was choosen as base software
 As seen in \ref{fig:components} the new Software consists of a gd-nrw-api, gd-nrw-dam-smartfinder-sdi, gd-nrw-dam and gd-nrw-datastore.
 In the following each software component will be shortly described:
 \begin{description}[]
-	\item[gd-nrw-dam-smartfinder-sdi]: This represents the smart.finder sdi. itself consits of multiple software components, such as the smartfinder-search, smartfinder-editor, smartfinder-csw and the smartfinder-sdi, and the gd-nrw-dam-portal.
+	\item[gd-nrw-dam-smartfinder-sdi]: This represents the smart.finder SDI, comprising several software components, including the smartfinder-search, smartfinder-editor, smartfinder-csw and smartfinder-sdi, as well as the gd-nrw-dam-portal.
 	      \begin{description}[]
-		      \item[smartfinder-search]: This component manages primarily the data handling. It operates on an integrated Apache Solr instance to enable the search and filter capabilites of the smartfinder. It also allows aspects like full-text search, geo-searches or filter for specific attribute values.
-		      \item[smartfinder-editor]: This component represents the smart.editor. It allows editing Metadata which complys to with ISO 19115/ISO 19119, INPSIRE or GDI DE.
-		      \item[smartfinder-csw]: This component is the \glsxtrshort{csw} -interface. It allows sharing data to other portals, such as the GEOportal.NRW.
-		      \item[smartfinder-sdi]: This component thereby represents the frontend used for search and viewing datasets.
+		      \item[smartfinder-search]: This component is responsible for managing data. It operates on an integrated Apache Solr instance to enable the search and filter capabilites of the smartfinder. It also enables features such as full-text search, geo-searches, and filtering for specific attribute values.
+		      \item[smartfinder-editor]: This component represents the smart.editor, which enables the editing of Metadata in compliance with ISO 19115/ISO 19119, INSPIRE, or GDI DE.
+		      \item[smartfinder-csw]: This component serves as the \glsxtrshort{csw} interface, enabling the dissemination of data to other portals, including the GEOportal.NRW.
+		      \item[smartfinder-sdi]: This component constitutes the user interface for searching and accessing datasets.
 		      \item[gd-nrw-dam-portal]: This component is an adapted version of the smartfinder-sdi component.
 	      \end{description}
-	\item[gd-nrw-dam]: This component provides  CRUD functionality of metadata. Especially it provides an frontend for Multi-Edit Metadata, Editing Single Metadata,
-	\item[gd-nrw-datastore]: This component handles data raw data access. It can either work with the raw file system or S3 Storages. It provides basic CRUD capabilites for the data.
-	\item[gd-nrw-api]: This component handles the interaction between the new developed software components and the smartfinder-sdi.
+	\item[gd-nrw-dam]: This component offers CRUD functionality for metadata, including a frontend for Multi-Edit Metadata and Editing Single Metadata.
+	\item[gd-nrw-datastore]: This component is responsible for the raw data access. It has the ability to function with both the raw file system and S3 Storages. It offers fundamental CRUD capabilities for the data.
+	\item[gd-nrw-api]: This component stores the metadata and manages the communication between the newly developed software components and the smartfinder-sdi.
 \end{description}
 The general workflow for documents is that all editing is handled from gd-nrw-dam. The edits then will be synchronized to the smartfinder-sdi.
 To save these \glsxtrshort{gd} specific attributes, there is also a new database, called gd-nrw-metadata.
@@ -155,11 +157,11 @@ To save these \glsxtrshort{gd} specific attributes, there is also a new database
 	\centering
 \end{figure}
 
-As part of the planning, a deployment diagram was created \ref{fig:deployment}. To achieve the goal of splitting the data between two hosts, there are now two datastores that can be switched in place. This is necessary to allow authorised users to access sensitive data. The metadata is still completely hosted by IT.NRW, but can be locked behind a login and is therefore not available to the public. The aim of this configuration is to duplicate as few services as possible.
+As part of the planning, a deployment diagram was created, figure \ref{fig:deployment}. To achieve the goal of splitting the data between two hosts, there are now two datastores that can be switched in place. This is necessary to allow authorised users to access sensitive data. The metadata is still completely hosted by IT.NRW, but can be locked behind a login and is therefore not available to the public. The aim of this configuration is to duplicate as few services as possible.
 An alternative was to build a complete clone system for IT.NRW and \glsxtrshort{gd} and only synchronise the open access datasets.
 
 \subsubsection{My Participation}
-My participation in this project was primarily the developement of the new software components for a prototype. Additionally i made modified the smartfinder-sdi. 
+My involvement in this project focused on the development of new software components for a prototype. Furthermore, I made modifications to the smartfinder-sdi.
 
 \begin{figure}[t]
 	\caption{Database Scheme}
@@ -202,9 +204,9 @@ After that, a decision was made to drop Python and FastAPI in favour of Spring B
 
 Following that, I developed an Azure build pipeline for automated deployment on our test system.  To achieve this, I restructured the project into two separate components: the frontend and the backend, each with its own pom.xml file. Additionally, there is a pom file for the entire project, enabling Maven to build the project with the complete frontend included in the backend for the pipeline. The tomcat-maven-plugin was then used for deployment to our test machine.
 
-Later, I developed the Sfsdi-API component, which serves as the predecessor to the gd-nrw-API. It is a Spring Boot application that accesses the Smartfinder-Search component and modifies its Solr database.
+Later, I developed the Sfsdi API component, which serves as a predecessor to the gd-nrw API. It is a Spring Boot application that accesses the Smartfinder-Search module and alters its Solr database. During development, I extended the smartfinder-search Solr core to handle additional data types beyond ISO. Moreover, I enhanced the frontend of the smartfinder-sdi, effectively creating the gd-nrw-dam-portal component.
 
-Finally, I have developed several complex features, including thumbnail generation for images and PDFs, on-the-fly zipped group downloads, \glsxtrshort{iptc}/\glsxtrshort{exif} read and write capabilities, and the deployment of a Redis Instance for fast and secure storage. These addition will facilitate the transition from the smartfinder to the new components.
+Finally, I have developed several complex features, including thumbnail generation for images and PDFs, on-the-fly zipped group downloads, \glsxtrshort{iptc}/\glsxtrshort{exif} read and write capabilities, and the deployment of a Redis Instance for fast and secure storage. These addition will facilitate the transition from the smartfinder to the new components. Also i deployed an Nginx instance as a reverse proxy for basic authentication, with SSL support. 
 
 
 
