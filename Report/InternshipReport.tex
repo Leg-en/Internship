@@ -51,9 +51,10 @@
 \makeglossaries
 \newacronym{gd}{GD}{Geologischer Dienst}
 \newacronym{exif}{EXIF}{Exchangeable Image File Format}
-\newacronym{iptc}{IPTC}{IPTC Information Interchange Model}
-\newacronym{csw}{CSW}{Catalogue Service for the Web }
-\newacronym{dz}{DZ-Gefahr}{Digitaler Zwilling - Gefahr }
+\newacronym{iptc}{IPTC IIM}{International Press Telecommunications Council Information Interchange Model}
+\newacronym{csw}{CSW}{Catalogue Service for the Web}
+\newacronym{dz}{DZ-Gefahr}{Digitaler Zwilling - Gefahr}
+\newacronym{fme}{FME}{Feature Manipulation Engine}
 
 \begin{document}
 
@@ -67,14 +68,14 @@
 
 My Internship was done at the con terra Münster. It started 2023-09-01 and ended 2024-03-31.
 \subsection{Company Profile}
-con terra is a geo-IT company based in Münster, Germany. The company primarily develops customer-specific GeoIT solutions based on the Feature Manipulation Engine (FME) and various Esri technologies, such as ArcGIS. For this reason, con terra is an Esri Platinum Partner and the main distribution partner of Safe Software for FME.
+con terra is a geo-IT company based in Münster, Germany. The company primarily develops customer-specific GeoIT solutions based on the \glsxtrfull{fme} and various Esri technologies, such as ArcGIS. For this reason, con terra is an Esri Platinum Partner and the main distribution partner of Safe Software for \glsxtrshort{fme}.
 
 On this basis, con terra also offers its own products, such as map.apps and smart.finder. Each with several different add-ons and configurations, for example smart.finder - SDI or map.apps ETL. As an alternative, they are also working on an open source framework called Open Pioneer.  %Todo: Hierüber muss ich drignend mit thore sprechen ob das so passt
 
-The con terra works with multiple different company and governmental Organizations, such as TenneT TSO,  \glsxtrfull {gd} NRW, IT.NRW or the Bundesanstalt für Geowissenschaften und Rohstoffe  (BGR).
+The con terra works with multiple different companys and governmental Organizations, such as TenneT TSO,  \glsxtrfull {gd} NRW, IT.NRW or the Bundesanstalt für Geowissenschaften und Rohstoffe  (BGR).
 
 \subsection{Motivation}
-I chose Con Terra for several reasons. Firstly, because it is a well-known software company. It develops its own software and creates customised solutions, which was ideal as I wanted to deepen my knowledge of software development. Other factors were the flexibility of the working hours and the fact that I had already worked there as a student assistant.
+I chose Con Terra for several reasons. Firstly, because it is a well-known software company in Münster. It develops its own software and creates customised solutions, which was ideal as I wanted to deepen my knowledge of software development. Other factors were the flexibility of the working hours and the fact that I had already worked there as a student assistant.
 
 \section{Internship Content}
 
@@ -147,8 +148,10 @@ In the following each software component will be shortly described:
 	\item[gd-nrw-datastore]: This component is responsible for the raw data access. It has the ability to function with both the raw file system and S3 Storages. It offers fundamental CRUD capabilities for the data.
 	\item[gd-nrw-api]: This component stores the metadata and manages the communication between the newly developed software components and the smartfinder-sdi.
 \end{description}
-The general workflow for documents is that all editing is handled from gd-nrw-dam. The edits then will be synchronized to the smartfinder-sdi.
-To save these \glsxtrshort{gd} specific attributes, there is also a new database, called gd-nrw-metadata.
+The general workflow for documents is that all editing is done by \glsxtrshort{gd} Staff, therefore their component handle all editing.
+
+As the GD wanted to keept its own Metadata scheme, an additional database was required to save these Attributes.  This database  is called gd-nrw-metadata. Its schema special developed to not allow any M-N relationships, as this was required.  The schema is visible in \ref{fig:db}.
+
 
 \begin{figure}[t]
 	\caption{Deployment Diagramm}
@@ -170,8 +173,8 @@ My involvement in this project focused on the development of new software compon
 	\centering
 \end{figure}
 
-The initial prototype commenced as a basic project employing FastAPI and Python. It also integrated an added PostgreSQL database. The principal objective was to construct a database schema tailored to our requirements. The ultimate configuration is depicted in Graphic \ref{fig:db}. We opted for a flat structure with no N-M relationships. 
-Also, I designed the frontend. Our technological stack consisted of Vue and Vuetify, with the inclusion of a Vite development server. The primary Vue components that I developed include Single Editing for modifying a single Metadataset and Multi-Edit for modifying multiple Metadatasets greater than one. To create Single Editing, I used a mockup as a template to base my development on. I designed and conceptualised Multi-Editing myself, as demonstrated in figure \ref{fig:multiedit}.  
+The initial prototype commenced as a basic project employing FastAPI and Python. It also integrated an added PostgreSQL database. The principal objective was to construct a database schema tailored to our requirements. The final configuration is depicted in Graphic \ref{fig:db}. We opted for a flat structure with no N-M relationships. 
+Also, I designed the frontend. Our technological stack for the frontend consisted of Vue and Vuetify, with the inclusion of a Vite development server. The primary Vue components that I developed include Single Editing for modifying a single Metadataset and Multi-Edit for modifying multiple Metadatasets. To create Single Editing, I used a mockup as a template to base my development on. I designed and conceptualised Multi-Editing myself, as demonstrated in figure \ref{fig:multiedit}.  
 
 Later on in the project, I developed an additional front-end for a shopping cart, which serves as an intermediary website between the Smartfinder and the new components. Moreover, I developed a front-end for the administrator to configure various attributes for editing.
 
@@ -200,7 +203,7 @@ Later on in the project, I developed an additional front-end for a shopping cart
 \end{figure}
 
 
-After that, a decision was made to drop Python and FastAPI in favour of Spring Boot and Java. Therefore, I have commenced composing the gd-nrw-dam module. The gd-nrw-datastore module is integrated into the prototype of the gd-nrw-dam module. This began by implementing the required Spring Data classes and interfaces, followed by Afterwards, I began implementing the fundamental endpoints for CRUD operations to restore functionality to my frontend. Additionally, the capacities to host the built front-end on the Spring Boot server were incorporated. I developed a special Spring Boot controller to keep the Vue router component of the frontend working, as it controls the routing for which page is loaded. The code for this can be found in \ref{fig:vue}. It should be noted that any requests that match the applied regex pattern will be directed to the Vue Router.
+After that, a decision was made to drop Python and FastAPI in favour of Spring Boot and Java. Therefore, I have commenced composing the gd-nrw-dam module. The gd-nrw-datastore module is integrated into the prototype of the gd-nrw-dam module. This began by implementing the required Spring Data classes and interfaces, followed by Afterwards, I began implementing the fundamental endpoints for CRUD operations to restore functionality to my frontend. Additionally, the capacities to host the built front-end on the Spring Boot server were incorporated. I developed a special Spring Boot controller to keep the Vue router component of the frontend working, as it controls the routing for which page is loaded. The code for this can be found in \ref{fig:vue}. It should be noted that any requests that match the applied regex pattern will be directed to the Vue Router. 
 
 Following that, I developed an Azure build pipeline for automated deployment on our test system.  To achieve this, I restructured the project into two separate components: the frontend and the backend, each with its own pom.xml file. Additionally, there is a pom file for the entire project, enabling Maven to build the project with the complete frontend included in the backend for the pipeline. The tomcat-maven-plugin was then used for deployment to our test machine.
 
