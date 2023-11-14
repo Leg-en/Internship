@@ -70,12 +70,12 @@ My Internship was done at the con terra Münster. It started 2023-09-01 and ende
 \subsection{Company Profile}
 con terra is a geo-IT company based in Münster, Germany. The company primarily develops customer-specific GeoIT solutions based on the \glsxtrfull{fme} and various Esri technologies, such as ArcGIS. For this reason, con terra is an Esri Platinum Partner and the main distribution partner of Safe Software for \glsxtrshort{fme}.
 
-On this basis, con terra also offers its own products, such as map.apps and smart.finder. Each with several different add-ons and configurations, for example smart.finder - SDI or map.apps ETL. As an alternative, they are also working on an open source framework called Open Pioneer.  %Todo: Hierüber muss ich drignend mit thore sprechen ob das so passt
+On this basis, con terra also offers its own products, such as map.apps and smart.finder. Each with several add-ons and configurations, for example smart.finder - SDI or map.apps ETL. As an alternative, they are also working on an open source framework called Open Pioneer.  %Todo: Hierüber muss ich drignend mit thore sprechen ob das so passt
 
 The con terra works with multiple different companys and governmental Organizations, such as TenneT TSO,  \glsxtrfull {gd} NRW, IT.NRW or the Bundesanstalt für Geowissenschaften und Rohstoffe  (BGR).
 
 \subsection{Motivation}
-I chose Con Terra for several reasons. Firstly, because it is a well-known software company in Münster. It develops its own software and creates customised solutions, which was ideal as I wanted to deepen my knowledge of software development. Other factors were the flexibility of the working hours and the fact that I had already worked there as a student assistant.
+As a Master’s student specializing in Geoinformatics and Spatial Data Science, my internship at con terra represents a strategic step in my professional development. Given my previous work experience with the company, I am already familiar with its standing as a leading geospatial software provider in Münster. This familiarity allows me to integrate seamlessly into the team and contribute effectively from the onset. The focus of the internship on software development is in perfect harmony with my academic training, promising a direct application of theoretical knowledge in a practical setting. My objective during this internship is to further refine my software development skills, leveraging the opportunities at con terra to enhance my technical expertise in geospatial IT
 
 \section{Internship Content}
 
@@ -87,7 +87,7 @@ The  \glsxtrshort {gd} NRW has a large achieve of different assets, which are cu
 Primarily they  are required to make all data, where it is legally possible, open data \cite{GesetzZurForderung2017}.
 Additionally the GeolDG also requires the \glsxtrshort{gd} to make their accessible by the public \cite{GesetzZurStaatlichen2020}.
 
-Therefore the main goal of this project was to conceptualize a new system and to implement parallel a prototype of it.
+Therefore, the main goal of this project was to conceptualize a new system and to implement parallel a prototype of it.
 \subsubsection{As-is Status}
 The \glsxtrshort{gd} digital archive contains over 450,000 assets. Assets in this context are for example images, PDFs, TIFs or MP4s. However, any digital file can be an asset. The total data volume is over 2 terabytes.
 These assets are currently located on a shared drive and can be managed via the file system. They also use a piece of software called Cumulus. This software primarily manages the metadata associated with the assets. Currently, the \glsxtrshort{gd} does not use any known metadata schema, but instead uses a list of custom attributes, such as Rating, Special Instructions and Label.
@@ -154,7 +154,7 @@ As the GD wanted to keept its own Metadata scheme, an additional database was re
 
 
 \begin{figure}[t]
-	\caption{Deployment Diagramm}
+	\caption{Planned Deployment Diagramm}
 	\label{fig:deployment}
 	\includegraphics[width=16cm]{deployment.png}
 	\centering
@@ -210,7 +210,7 @@ Following that, I developed an Azure build pipeline for automated deployment on 
 Later, I developed the Sfsdi API component, which serves as a predecessor to the gd-nrw API. It is a Spring Boot application that accesses the Smartfinder-Search module and alters its Solr database. During development, I extended the smartfinder-search Solr core to handle additional data types beyond ISO. Moreover, I enhanced the frontend of the smartfinder-sdi, effectively creating the gd-nrw-dam-portal component.
 Also i created an automated ISO XML generation.
 
-Finally, I have developed several complex features, including thumbnail generation for images and PDFs, on-the-fly zipped group downloads, \glsxtrshort{iptc}/\glsxtrshort{exif} read and write capabilities, and the deployment of a Redis Instance for fast and secure storage. These addition will facilitate the transition from the smartfinder to the new components. Also i deployed an Nginx instance as a reverse proxy for basic authentication, with SSL support. 
+Finally, I have developed several complex features, including thumbnail generation for images and PDFs, on-the-fly zipped group downloads, \glsxtrshort{iptc}/\glsxtrshort{exif} read and write capabilities, and the deployment of a Redis Instance for fast and secure storage. These addition will facilitate the transition from the smartfinder to the new components. Also i deployed an Nginx instance as a reverse proxy for basic authentication, with TLS support. 
 
 
 
