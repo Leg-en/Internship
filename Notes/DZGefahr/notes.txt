@@ -1,0 +1,36 @@
+Warum? 
+- Ahrtal Katastrophe
+	- Hätte besser laufen können mit mehr Infos
+	- Infoaustausch zwischen Organisationen (Feuerwehr, THW?) fehlend
+	-> Krisenbewältigungsgesetz NRW
+		- Katastrophenhilfe - Konkrete Hilfe nach event (Überflutung)
+		- Bevölkerungsschut - Abstrake Prävention (gefahrenabwehr)
+	-> Sondervermögen (500.000 €) durch notlage (02.23)
+	-> con terra bekommt auftrag lösungsmöglichkeiten zu entwickeln 
+		-> Machbarkeitsstudie (15PT) im Mai 
+			- 1 Zentrale Anwendung ist das Ziel 
+			-> Richtiges Projekt im Juni dann gestartet 
+				-> Prototypen Entwicklung ist Ziel 
+- Aufbau von 3D Geo Mesches
+	- Geplant für 2024
+		- Gestartet 2023
+	- 3d Tiles format ursprüunglich geplant (OGC)
+		- Unterstützt nicht epsg 25832 (ist in de verpflichtend)
+			-> Muss das ESRI OGC Format nutzen (I3S) 
+			-> Kann auch keine anderen Amtlichen daten 
+			- Esri format ist aber sehr komplex
+			
+Digitaler Zwilling Ziel
+	- Soll vor, während, nach katastrophe unterstützuen
+	- BHKG Gesetz über brandschutz, hilfekeleistung und katastrophenschutz
+	- Für behörden und oraganisations mit sicherheitsaufgaben (BOS) 
+	- KRITIS
+	- Rechtekonzept notwendig für live system
+		- Kritische Infos dürfen nur ein eingeschränkter personenkreis sehen
+		- Dennoch im Öffentlichen Netzwerk
+	- Agiles Projekt mit 7 Arbeitspaketen
+	
+Präsentation im DZGefahr Teams
+-> Viele zukünftige Projekte 
+	Sachen mit WEAs
+	Straßen NRW mit Tunneln
