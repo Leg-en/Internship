@@ -219,66 +219,65 @@ Finally, I have developed several complex features, including thumbnail generati
 
 \subsection{\glsxtrfull{dz}}
 \subsubsection{Introduction}
-After the flood disaster in the Ahrtal it was recognized that the hazard prevention and emergency response in the federal state NRW is not optimal. Dispatched units, e.g. \glsxtrshort{thw} and fire department, could not really comunicate and organize their actions. But communication and organization is a key part, as it allows effiecient and fast responses. 
-After the "Krisenbewältigungsgesetz" in NRW was deployed on December 2022, it was decided that this lack of competence is an emergency situation on February 23. To solve this there was an budget of 500.000€ provided.
-The con terra applied together with IT.NRW to develop a solution to this problem.
-The solution of the con terra is a digital twin with the focus on aggregating all relevant data and visualize it optimally for each possible Scenario.  It should incorporate multiple relevant datasets from multiple sources. Source system in this context are for example the GDI-NW, the LVN and the Bund BKG.
+In the wake of the catastrophic flooding in Ahrtal, significant deficiencies in the hazard prevention and emergency response systems of (NRW) were exposed. Critical challenges were observed in the coordination and communication among dispatched units, such as the Federal Agency for Technical Relief (\glsxtrshort{thw}) and the fire department. Effective communication and organization are crucial for swift and efficient emergency responses. 
+
+Following the enactment of the "Krisenbewältigungsgesetz" in NRW in December 2022, the state government officially recognized this deficiency as an emergency situation on February 23. In response, a budget of €500,000 was allocated to address this issue.
+
+con terra, in collaboration with IT.NRW, submitted a proposal to develop a solution to these challenges. Their proposed solution is the creation of a digital twin, designed to aggregate and optimally visualize all relevant data for various potential scenarios. This solution aims to integrate multiple datasets from diverse sources, including the GDI-NW, LVN, and the Federal Agency for Cartography and Geodesy (BKG).
+
 
 
 \subsubsection{As-is Status}
 There are currently no central systems in place to handle this kind of task. Mostly there are department specific solutions or even general purpose Systems like QGIS or ArcGIS.
 
 
-
 \subsubsection{Requirements}
-As this is an consulting project, with the main goal of develop an prototype, there are few hard requirements for it. Also a few of the requirements where also evaluated and set during the project in cooperation with fire departments. An excerpt of the main requirements for this project are the following: 
-
+This project, primarily a consultancy initiative aimed at developing a prototype, has a set of flexible yet pivotal requirements. Some requirements were also refined and established in collaboration with fire departments during the project's course. Below is a summary of the key requirements:
 
 \begin{description}[]
-	\item[3 Dimensionality]: As the real world is and its associated problems are 3 Dimensional the solution should acknowledge this. Therefore it should have the capabilities to visualize 3D Data and run simple general purpose processes like measurements on it. 
-	\item[Scenario Optimized Geodata]: The digital twin should optimize it data visualization and access for different scenarios, as not each scenario can use each dataset. Main scenario Groups are here: Fire, Earth, Water, Air.
-	\item[Follow the \glsxtrshort{bhkg}]: The prototype should be developed with the aim of planning / monitoring / follow-up in accordance with \glsxtrshort{bhkg}.
-	\item[Target Group - Authorities and organizations with security tasks]:  The Prototype should be developed with its target group in mind, as it can not be expected that everyone has Geo specific knowledge 
-	\item[Cloud based]: The complete application should live and run in the cloud.
-	\item[Fine grained right concept]: As the application may contain critical data (e.g.,\glsxtrshort{kritis} data) it should have a right concept, so that each user can only access datasets relevant for them. 
-	\item[Analysis tools]: The application should also provide extensive analysis tools. For the prototype this will be: Identify protected assets and analyze its accesibility, determine dynamically the waterlevel in 3D, Simulating spread of a smoke cloud in 3D.
-	\item[Incoorporate 3D Meshes]:  The state of NRW is currently working on creating a detaield 3D mesh for the entire federal state. The digital twin should incorporate the complete dataset.
-	\item[EPSG: 25832] As a governmental project, the entire application must use EPSG: 25832
+    \item[Three-Dimensional Capability]: Reflecting the three-dimensional nature of real-world challenges, the solution must be capable of visualizing 3D data and performing basic general-purpose operations, such as measurements, in a 3D environment.
+    \item[Scenario-Optimized Geodata]: The digital twin should tailor its data visualization and accessibility for different emergency scenarios, acknowledging that not all datasets are suitable for every scenario. Primary scenario groups include Fire, Earth, Water, and Air.
+    \item[Compliance with \glsxtrshort{bhkg}]: The prototype should be developed with the objective of planning, monitoring, and follow-up in accordance with \glsxtrshort{bhkg} standards.
+    \item[Target Group - Authorities and Security Organizations]: The prototype should be user-friendly for its target audience, which includes authorities and organizations involved in security tasks, without assuming extensive geospatial knowledge.
+    \item[Cloud-Based Solution]: The entire application should be cloud-based, ensuring accessibility and scalability.
+    \item[Fine-Grained Access Control]: Given the potential inclusion of sensitive data (e.g., \glsxtrshort{kritis} data), the application must feature a robust access control system, allowing users to view only data relevant to their roles and responsibilities.
+    \item[Analysis Tools]: The application should offer comprehensive analysis tools. For the prototype, these will include the ability to identify and assess the accessibility of protected assets, dynamically determine water levels in 3D, and simulate the spread of smoke clouds in 3D.
+    \item[Integration of 3D Meshes]: The prototype should incorporate a detailed 3D mesh, which is currently being developed for the entire state of NRW.
+    \item[EPSG: 25832 Standard]: As a governmental project, the application must utilize the EPSG: 25832 standard for all geospatial data.
 \end{description}
 
-But not all requirements will be full filled in this project!
+However, it is important to note that not all these requirements will be fully met in the initial phase of this project.
+
 
 \section{Implementation}
 The project used as a base mapapps and was in an agile manner developed. From the requirements just a few were implemented.
 
 \section{My Participation}
-I came in the project shortly before it ended. Therefore i only fulfilled only a few tasks.
-My main focus was on integrating fire department data, we were provided with. I was given a PEI Dataset. This dataset consisted of radio messages transmitting location data. Either Short PDU, Long PDU or STATUS. An example is visible in in \ref{fig:pei}. There first line contains metadata about the message, e.g., transmitting party, receiving party and message type.
-The following HEX-Code can be translated to binary, which in turn can be now decoded accordingly to ETSI TS 100 392-18-1. I developed a simple python script which automated this task and outputs an ESRI feature layer.  
+I joined the project in its final stages, focusing on a limited but significant set of tasks. My primary responsibility involved integrating data provided by the fire department. I worked with a PEI Dataset, which consisted of radio messages containing location data, such as Short PDU, Long PDU, or STATUS. An example of this data is shown in Figure \ref{fig:pei}. The first line of each message includes metadata, like the transmitting and receiving parties, and the message type. The HEX-Code following this metadata can be converted to binary and decoded according to the ETSI TS 100 392-18-1 standard. I developed a Python script to automate this process, outputting the data as an ESRI feature layer.
+
 \begin{figure}[H]
-	\caption{Fire department data entry}
-	\label{fig:pei}
-	\begin{lstlisting}[frame=single]
+    \caption{Fire Department Data Entry Example}
+    \label{fig:pei}
+    \begin{lstlisting}[frame=single]
         +CTSDSR: 108,262100112345678,1,262100188888888,1,88,1
-		0A004C9CD24739C9384820
-
-        
-        \end{lstlisting}
-	\centering
+        0A004C9CD24739C9384820
+    \end{lstlisting}
+    \centering
 \end{figure}
 
-I also developed an new map control tool, which allows users a more intuitive way to control the position, rotation, tilt and zoom of  the map. The rotation in this case can be changed by dragging the north arrow and rotate it around the circle, as seen in \ref{fig:mapcontrol}.
+Additionally, I developed a new map control tool, enhancing user interaction with map features such as position, rotation, tilt, and zoom. This tool allows users to intuitively adjust the map's rotation by dragging the north arrow around a circle, as illustrated in Figure \ref{fig:mapcontrol}.
+
 \begin{figure}[H]
-	\caption{Screenshot MapControl}
-	\label{fig:mapcontrol}
-	\includegraphics[width=16cm]{dzgefahr_mapcontrol.png}
-	\centering
+    \caption{Map Control Tool Screenshot}
+    \label{fig:mapcontrol}
+    \includegraphics[width=16cm]{dzgefahr_mapcontrol.png}
+    \centering
 \end{figure}
 
-I also enabled smooth Animations of moving objects in mapapps. This was espesecially inteded for a layer which displays the live position of each bus in Münster. Before that the Bus teleported every few meters. With my update the bus now mooves smoothly during a position update. This was done with the help of an third party library called animejs. 
+I also improved the animation of moving objects in mapapps, particularly for a layer that displays live bus positions in Münster. Previously, buses would appear to 'teleport' across the map; my update, using the animejs library, enabled smooth motion during position updates.
 
-Finally i evaluated how compatible Esris ArcGIS Indoors Technology is with mapapps. The result is that the 
-compability is currently limited. 
+My final task was to assess the compatibility of Esri's ArcGIS Indoors Technology with mapapps. The evaluation concluded that compatibility is currently limited.
+
 \section{Reflection}
 
 \clearpage
