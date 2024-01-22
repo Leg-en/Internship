@@ -90,7 +90,7 @@ The con terra also has a lot of benefits for its Employees, such as modern offic
 
 The company employs over 220 professionals from diverse fields, including computer science, geoscience, mathematics, physics, engineering, and ecology. Con Terra prioritises a corporate culture based on values such as responsibility, humanity, individuality, and professionalism, which are integral to its business operations and customer relationships.
 
-The Con Terra offers several benefits to its employees, including modern offices, a focus on work-life balance with flexible working hours, and the provision of a company car or job bike. The company also places a significant emphasis on social events, such as team events, Con Terra afternoons, summer festivals, Christmas parties, and a boathouse on the Werse that can be rented. The company also places a significant emphasis on social events, such as team events, Con Terra afternoons, summer festivals, Christmas parties, and a boathouse on the Werse that can be rented. 
+The Con Terra offers several benefits to its employees, including modern offices, a focus on work-life balance with flexible working hours, and the provision of a company car or job bike. The company also places a significant emphasis on social events, such as team events, Con Terra afternoons, summer festivals, Christmas parties, and a boathouse on the Werse that can be rented. The company also places a significant emphasis on social events, such as team events, Con Terra afternoons, summer festivals, Christmas parties, and a boathouse on the Werse that can be rented.
 
 % The con terra works with multiple different companys and governmental Organizations, such as TenneT TSO,  \glsxtrfull {gd} NRW, IT.NRW or the Bundesanstalt für Geowissenschaften und Rohstoffe  (BGR).
 
@@ -107,28 +107,28 @@ Additionally the GeolDG also requires the \glsxtrshort{gd} to make their accessi
 Therefore, the main goal of this project was to conceptualize a new system and to implement parallel a prototype of it.
 The \glsxtrshort{gd} digital archive contains over 450,000 assets. Assets in this context are for example images, PDFs, TIFs or MP4s. However, any digital file can be an asset. The total data volume is over 2 terabytes.
 These assets are currently located on a shared drive and can be managed via the file system. They also use a piece of software called Cumulus. This software primarily manages the metadata associated with the assets. Currently, the \glsxtrshort{gd} does not use any known metadata schema, but instead uses a list of custom attributes, such as Rating, Special Instructions and Label.
-They also use \glsxtrshort{exif} and \glsxtrshort{iptc} metadata information for images, which is not managed by Cumulus. Instead, this is done with an additional software component. 
+They also use \glsxtrshort{exif} and \glsxtrshort{iptc} metadata information for images, which is not managed by Cumulus. Instead, this is done with an additional software component.
 
 The new system should eliminate the inadequacies of the old system. Therefore a list of Requirements were collected. In the following there is a subset example of the main functional requirements:
 \begin{itemize}
-	\item Keeping the Internal metadata attributes (and adding new ones)
-	\item Connection to the GEOportal.NRW
-	\item CRUD Operations for Datasets and associated metadata
-	      \begin{itemize}
-		      \item With an Integrated Permission System for Internal (\glsxtrshort{gd} Employees) and Externals
-		      \item (Multi-)Edit Interface for Metadata
-	      \end{itemize}
-	\item Sharing data
-	\item Update \glsxtrshort{exif} and \glsxtrshort{iptc} when an update occurs
-	\item Syncing/Translating Internal Metadata to ISO 19115/ISO 19119
-	\item Different Search Operations
+    \item Keeping the Internal metadata attributes (and adding new ones)
+    \item Connection to the GEOportal.NRW
+    \item CRUD Operations for Datasets and associated metadata
+          \begin{itemize}
+              \item With an Integrated Permission System for Internal (\glsxtrshort{gd} Employees) and Externals
+              \item (Multi-)Edit Interface for Metadata
+          \end{itemize}
+    \item Sharing data
+    \item Update \glsxtrshort{exif} and \glsxtrshort{iptc} when an update occurs
+    \item Syncing/Translating Internal Metadata to ISO 19115/ISO 19119
+    \item Different Search Operations
 \end{itemize}
 
 In addition, there are a number of quality requirements that focus primarily on data integrity and the tech stack used for development. For example, the software developed should be able to live in the cloud or on a dedicated machine.
 
 A final requirement is that the system needs to be split. It should mainly run on the servers of IT.NRW. But only non-sensitive data should be hosted there. Sensitive data should be hosted and only accessible by the \glsxtrshort{gd} and its staff.
 \subsubsection{\glsxtrfull{dz}}
-In the wake of the catastrophic flooding in Ahrtal, significant deficiencies in the hazard prevention and emergency response systems of (NRW) were exposed. Critical challenges were observed in the coordination and communication among dispatched units, such as the Federal Agency for Technical Relief (\glsxtrshort{thw}) and the fire department. Effective communication and organization are crucial for swift and efficient emergency responses. 
+In the wake of the catastrophic flooding in Ahrtal, significant deficiencies in the hazard prevention and emergency response systems of (NRW) were exposed. Critical challenges were observed in the coordination and communication among dispatched units, such as the Federal Agency for Technical Relief (\glsxtrshort{thw}) and the fire department. Effective communication and organization are crucial for swift and efficient emergency responses.
 
 Following the enactment of the "Krisenbewältigungsgesetz" in NRW in December 2022, the state government officially recognized this deficiency as an emergency situation on February 23. In response, a budget of €500,000 was allocated to address this issue.
 
@@ -158,15 +158,15 @@ However, it is important to note that not all these requirements will be fully m
 My involvement in this project focused on the development of new software components for a prototype. Furthermore, I made modifications to the smart.finder SDI.
 
 
-The initial prototype i made commenced as a basic project employing FastAPI and Python. It also integrated an added PostgreSQL database. The principal objective was to construct a database schema tailored to our requirements. We opted for a flat structure with no N-M relationships. 
-Also, I designed the frontend. Our technological stack for the frontend consisted of Vue and Vuetify, with the inclusion of a Vite development server. The primary Vue components that I developed include Single Editing for modifying a single Metadata set and Multi-Edit for modifying multiple Metadatasets. To create Single Editing, I used a mockup as a template to base my development on. I designed, conceptualised and implemented Multi-Editing myself.  
+The initial prototype i made commenced as a basic project employing FastAPI and Python. It also integrated an added PostgreSQL database. The principal objective was to construct a database schema tailored to our requirements. We opted for a flat structure with no N-M relationships.
+Also, I designed the frontend. Our technological stack for the frontend consisted of Vue and Vuetify, with the inclusion of a Vite development server. The primary Vue components that I developed include Single Editing for modifying a single Metadata set and Multi-Edit for modifying multiple Metadatasets. To create Single Editing, I used a mockup as a template to base my development on. I designed, conceptualised and implemented Multi-Editing myself.
 
 Later on in the project, I developed an additional front-end for a shopping cart, which serves as an intermediary website between the smart.finder SDI and the new components. Moreover, I developed a front-end for the administrator to configure various attributes for editing.
 
 \begin{figure}[t]
-	\caption{Vue Java Controller}
-	\label{fig:vue}
-	\begin{lstlisting}[language=java, frame=single]
+    \caption{Vue Java Controller}
+    \label{fig:vue}
+    \begin{lstlisting}[language=java, frame=single]
         @Controller
         public class VueController {
             @RequestMapping(value = "/*/{path:[^\\.]*}")
@@ -176,7 +176,7 @@ Later on in the project, I developed an additional front-end for a shopping cart
         }
         
         \end{lstlisting}
-	\centering
+    \centering
 \end{figure}
 
 
@@ -184,10 +184,10 @@ After that, a decision was made to drop Python and FastAPI in favour of Spring B
 
 Following that, I developed an Azure build pipeline for automated deployment on our test system.  To achieve this, I restructured the project into two separate components: the frontend and the backend, each with its own pom.xml file. Additionally, there is a pom file for the entire project, enabling Maven to build the project with the complete frontend included in the backend for the pipeline. The tomcat-maven-plugin was then used for deployment to our test machine.
 
-Later, I developed an additional API component. It is a Spring Boot application that accesses the smart.finder SDI and alters its Solr database. During development, I extended the smart.finder SDI Solr core to handle additional data types beyond ISO. Moreover, I enhanced the frontend of the smart.finder SDI to display those attributes. 
+Later, I developed an additional API component. It is a Spring Boot application that accesses the smart.finder SDI and alters its Solr database. During development, I extended the smart.finder SDI Solr core to handle additional data types beyond ISO. Moreover, I enhanced the frontend of the smart.finder SDI to display those attributes.
 Also i created an automated ISO XML generation based on our new attributes.
 
-Finally, I have developed several complex features, including thumbnail generation for images and PDFs, on-the-fly zipped group downloads, \glsxtrshort{iptc}/\glsxtrshort{exif} read and write capabilities, and the deployment of a Redis Instance for fast and secure storage. This addition will facilitate the transition from the smartfinder to the new components. Also i deployed an Nginx instance as a reverse proxy for basic authentication, with TLS support. 
+Finally, I have developed several complex features, including thumbnail generation for images and PDFs, on-the-fly zipped group downloads, \glsxtrshort{iptc}/\glsxtrshort{exif} read and write capabilities, and the deployment of a Redis Instance for fast and secure storage. This addition will facilitate the transition from the smartfinder to the new components. Also i deployed an Nginx instance as a reverse proxy for basic authentication, with TLS support.
 
 
 \subsubsection{\glsxtrfull{dz}}
@@ -221,218 +221,281 @@ My final task was to assess the compatibility of Esri's ArcGIS Indoors Technolog
 
 
 \subsubsection{Study Relevant Competencies}
-In the course of the internship is used multiple aspects from my study program. Clearly i needed my software developement Competencies, which were teached in multiple modules. For example i needed to develop software components in Javascript, Java and Python. Basic database competencies were also teached. 
+During my internship, I applied concepts and skills from my academic curriculum in Geoinformatics and Spatial Data Science. The internship required me to use my software development competencies, which I developed through various modules in my study program. The internship required the development of software components using programming languages such as JavaScript, Java, and Python. Basic database management competencies, which were also a part of my academic training, proved to be highly valuable in addition to these programming skills.
 
-Aspects that were clearly not teached was using Frameworks/Librarys in these Languages. For example in the university it was never teached to use any UI Framework, such as React, Angular or Vue. Therefore i needed to teach me this myself. Also using ORMs for database accesss were never teached but were heavily used. Also developing and planning complete and complex infrastructures were were not part of the study program. Also not teached were concepts such as Reverse Proxys and SSL. Also using GIS in the context of 3D were not really teached.
+However, it is noteworthy that certain aspects essential to my internship were not directly addressed within the scope of my university curriculum. The curriculum did not cover the use of User Interface (UI) Frameworks such as React, Angular, or Vue, which are practical applications of frameworks and libraries in the aforementioned programming languages. This gap in my formal education required me to undertake self-directed learning to gain proficiency in these areas.
 
+Moreover, I did not receive formal education on the use of Object-Relational Mapping (ORMs) for database access, a critical component in modern software development, which was extensively utilized during my internship. Furthermore, the planning and development of complex and complete infrastructures, which are pivotal in large-scale software projects, were not covered in my academic syllabus.
+
+Furthermore, my formal education did not cover advanced concepts such as Reverse Proxies and Secure Sockets Layer (SSL) encryption, which are crucial for ensuring secure and efficient web communication. Additionally, I did not receive any instruction on the application of Geographic Information Systems (GIS) in the context of 3D environments.
+
+In summary, my academic background in Geoinformatics and Spatial Data Science provided a strong foundation in software development and basic database management. However, my internship experience highlighted the need for a more expansive curriculum that includes practical applications of modern software frameworks, advanced infrastructure planning, and the integration of GIS in 3D modelling. This will better prepare students for the evolving demands of the industry.
+
+\subsubsection{The state of planning}
+The planned course of my internship, which I had initially outlined in collaboration with my supervisor, underwent significant changes as the practical aspects of the work environment came into play. The Geologischer Dienst NRW project was the only part of the pre-established plan that was carried out.
+
+After this phase, the plan originally proposed my involvement in the Open Pioneer track, with a focus on integrating 3D functionalities using DeckGL to enhance its capabilities. However, this plan was later reassessed and deemed infeasible. The reasons for this reassessment may have been technical complexities, resource limitations, or a misalignment between the project's objectives and the practical applicability of 3D technologies in this context.
+
+Due to this change in focus, my internship took a different direction, resulting in me being reassigned to work on the DZGefahr project for a few months. After that I developed the Geosphere prototype.
+
+
+\section{Results Obtained}
+The assessment of my internship work was conducted using a methodology that differs from traditional report-based evaluations. As my involvement did not revolve around large-scale projects, the assessment process was more incremental and continuous, rather than resulting in a formal report.
+
+Feedback was primarily given through direct interactions with other developers, project leads, and user experience (UX) designers. The mechanism for feedback was informal and integrated into the daily workflow. It did not involve structured meetings solely for performance evaluation. Instead, feedback was integrated into the collaborative process, offering immediate and practical insights into the quality and relevance of contributions.
+
+When a feature was considered acceptable, it was marked as complete. The primary tool for tracking progress and organizing tasks was the use of Jira boards.
+
+In addition to this ongoing feedback mechanism, I had bi-weekly discussions with my supervisor. These meetings served as a platform to evaluate not only the current state of specific projects I was working on but also the overall progression of my internship experience.
+
+\section{Communication competences}
+In the following ic will describe various Communication competencies in a short way.
+\begin{description}[]
+    \item[Supervisor Communication:] As previously stated, I had bi-weekly meetings with my supervisor. These were scheduled meetings.
+    \item[Teamwork:] I was part of the team, but because teams do not work together on a project, I did not really get to know each team member. Instead, I had regular contact with individuals who worked on the same project. However, as my tasks were mostly isolated, I worked independently without a team.
+    \item[Professional Network:] As I had already worked for two years prior to my internship at con terra, I did not expand my professional network in any way.
+    \item[Conflicts:] There were no conflicts during my internship that involved me.
+    \item[Communication Skills:]  During my internship, I did not acquire any new communication skills related to working on large-scale projects beyond prototypes. However, I did attend career services seminars where I learned a few new skills.
+    \item[Applied Communication Skills:]  As the general workflow and interaction in con terra are very similar to those in the university, I could easily adapt.
+\end{description}
+
+\section{Master Thesis Implications}
+The internship experience did not provide topics that would align with the requirements or themes suitable for a Master's thesis. However, I proactively addressed this by discussing potential thesis topics with my supervisor within the broader scope of the organization's interests and projects.
+
+The discussions mainly focused on Wind Turbine Placement, a subject of growing interest and relevance in sustainable energy and spatial planning. con terra has expressed a clear interest in the placement of wind turbines. In order to simplify and optimise the process of placing wind turbines, the federal states are actively looking for software solutions. This aligns with con terra's ambitions for a digital twin.
+
+A digital twin involves creating a virtual replica of a physical entity or system, offering a sophisticated approach to analyzing and optimizing wind turbine placement. This approach can contribute significantly to the efficient and sustainable development of wind energy resources, which is critical for environmental sustainability and energy transition.
+
+Currently, the idea of focusing a Master's thesis on this topic is in its early stages and has not been definitively decided. It is still a concept under consideration, and its potential and feasibility have yet to be fully explored and confirmed. This ongoing discussion reflects the dynamic nature of academic and professional exploration, where ideas evolve and are refined over time, in alignment with both academic objectives and the practical needs of the industry.
+
+\section{Learning Goals}
+In the following i will list each Learning Goal and evaluate if it was reached in the course of the internship
+
+\begin{description}[]
+    \item[Enhancement of proficiency in GIS software and infrastructure:]  This learning goal has been fully achieved. I have deepened my expertise in desktop GIS software, such as ArcGIS Pro, as well as on the server side with ArcGIS Server infrastructure. Additionally, I have gained experience in developing web GIS applications using the ArcGIS JS SDK and map.apps. I have also worked with various dataset types, including PEI datasets, file geodatabases, and NetCDF. 
+    \item[Further development of coding and data analysis capabilities:] This learning objective was fully achieved. I have developed several different applications in several languages. For example, I developed a complete Spring Boot app with a SQL database. I also developed some Python components and several JS applications for map.apps. In the context of data analysis I have a lot of experience with netCDF files and ArcGIS and Python.
+    \item[Mastery in data management]: Not archived. Although my internship had parts of data analysis, it was never the main focus. Data management consisted mainly of converting any data into an ArcGIS format and publishing it to an ArcGIS server. I also used flat structures for files that could not be converted to ArcGIS compatible formats.
+    \item[Acquisition of knowledge in emerging technology standards:] Partially archived. Even though I did not learn any extremely new technology, I did learn a lot of new technologies and how to use them. For example: Vue(3), SpringBoot, Nginx and Redis.
+    \item[Familiarization with project management and participation in large-scale projects:] Not archived. I did not work on any large-scale projects during my internship.
+    \item[Development of collaborative skills for team environments:] Archived. I have had some experience of working with real teams. Especially in the GD NRW project.
+    \item[Improvement in effective communication strategies:] Not archived, as i did not work enough in teams.  
+    \item[Skill development in recognizing correlations between various topics:] As I only visited a few themes, I was not able to make any real connections.
+    \item[Improvement in strategizing for problem-solving:] Archived. As I encountered many different problems, I learned new strategies to solve them.
+\end{description}
+
+In sum i archived four out of nine goals. In my opinion this is still a success ...
+
+\section{Summary and conclusions}
+
+All in all i would argue that my int
 
 \clearpage
 
-\section{Internship Content}
+% \section{Internship Content}
 
-My internship was clearly structured. This took the form three different Projects, each in their own timeframe and with their own requirements.
+% My internship was clearly structured. This took the form three different Projects, each in their own timeframe and with their own requirements.
 
-\subsection{Geologischer Dienst NRW - Metdata Asset Managment System}
-\subsubsection{Introduction}
-The  \glsxtrshort {gd} NRW has a large achieve of different assets, which are currently managed by a software named cumulus. As the used software is outdated, it does not meet the the current requirements.
-Primarily they  are required to make all data, where it is legally possible, open data \cite{GesetzZurForderung2017}.
-Additionally the GeolDG also requires the \glsxtrshort{gd} to make their accessible by the public \cite{GesetzZurStaatlichen2020}.
+% \subsection{Geologischer Dienst NRW - Metdata Asset Managment System}
+% \subsubsection{Introduction}
+% The  \glsxtrshort {gd} NRW has a large achieve of different assets, which are currently managed by a software named cumulus. As the used software is outdated, it does not meet the the current requirements.
+% Primarily they  are required to make all data, where it is legally possible, open data \cite{GesetzZurForderung2017}.
+% Additionally the GeolDG also requires the \glsxtrshort{gd} to make their accessible by the public \cite{GesetzZurStaatlichen2020}.
 
-Therefore, the main goal of this project was to conceptualize a new system and to implement parallel a prototype of it.
-\subsubsection{As-is Status}
-The \glsxtrshort{gd} digital archive contains over 450,000 assets. Assets in this context are for example images, PDFs, TIFs or MP4s. However, any digital file can be an asset. The total data volume is over 2 terabytes.
-These assets are currently located on a shared drive and can be managed via the file system. They also use a piece of software called Cumulus. This software primarily manages the metadata associated with the assets. Currently, the \glsxtrshort{gd} does not use any known metadata schema, but instead uses a list of custom attributes, such as Rating, Special Instructions and Label.
-They also use \glsxtrshort{exif} and \glsxtrshort{iptc} metadata information for images, which is not managed by Cumulus. Instead, this is done with an additional software component. %Likely Irfanview 
+% Therefore, the main goal of this project was to conceptualize a new system and to implement parallel a prototype of it.
+% \subsubsection{As-is Status}
+% The \glsxtrshort{gd} digital archive contains over 450,000 assets. Assets in this context are for example images, PDFs, TIFs or MP4s. However, any digital file can be an asset. The total data volume is over 2 terabytes.
+% These assets are currently located on a shared drive and can be managed via the file system. They also use a piece of software called Cumulus. This software primarily manages the metadata associated with the assets. Currently, the \glsxtrshort{gd} does not use any known metadata schema, but instead uses a list of custom attributes, such as Rating, Special Instructions and Label.
+% They also use \glsxtrshort{exif} and \glsxtrshort{iptc} metadata information for images, which is not managed by Cumulus. Instead, this is done with an additional software component. %Likely Irfanview 
 
-% \subsubsection{The new system}
-% The new system exists maninly as a concept. But a few features were already implemented as a prototype for the \glsxtrshort{gd} to test them.
-\subsubsection{Requirements}
-The new system should eliminate the inadequacies of the old system. Therefore a list of Requirements were collected. In the following there is a subset example of the main functional requirements:
-\begin{itemize}
-	\item Keeping the Internal metadata attributes (and adding new ones)
-	\item Connection to the GEOportal.NRW
-	\item CRUD Operations for Datasets and associated metadata
-	      \begin{itemize}
-		      \item With an Integrated Permission System for Internal (\glsxtrshort{gd} Employees) and Externals
-		      \item (Multi-)Edit Interface for Metadata
-	      \end{itemize}
-	\item Sharing data
-	\item Update \glsxtrshort{exif} and \glsxtrshort{iptc} when an update occurs
-	\item Syncing/Translating Internal Metadata to ISO 19115/ISO 19119
-	\item Different Search Operations
-\end{itemize}
+% % \subsubsection{The new system}
+% % The new system exists maninly as a concept. But a few features were already implemented as a prototype for the \glsxtrshort{gd} to test them.
+% \subsubsection{Requirements}
+% The new system should eliminate the inadequacies of the old system. Therefore a list of Requirements were collected. In the following there is a subset example of the main functional requirements:
+% \begin{itemize}
+% 	\item Keeping the Internal metadata attributes (and adding new ones)
+% 	\item Connection to the GEOportal.NRW
+% 	\item CRUD Operations for Datasets and associated metadata
+% 	      \begin{itemize}
+% 		      \item With an Integrated Permission System for Internal (\glsxtrshort{gd} Employees) and Externals
+% 		      \item (Multi-)Edit Interface for Metadata
+% 	      \end{itemize}
+% 	\item Sharing data
+% 	\item Update \glsxtrshort{exif} and \glsxtrshort{iptc} when an update occurs
+% 	\item Syncing/Translating Internal Metadata to ISO 19115/ISO 19119
+% 	\item Different Search Operations
+% \end{itemize}
 
 
+% % \begin{figure}[t]
+% % 	\caption{Use case diagram, which visualized some functional requirements}
+% % 	\label{fig:usecase}
+% % 	\includegraphics[width=16cm]{usecase_diagramm.png}
+% % 	\centering
+% % \end{figure}
+
+% In addition, there are a number of quality requirements that focus primarily on data integrity and the tech stack used for development. For example, the software developed should be able to live in the cloud or on a dedicated machine.
+
+% A final requirement is that the system needs to be split. It should mainly run on the servers of IT.NRW. But only non-sensitive data should be hosted there. Sensitive data should be hosted and only accessible by the \glsxtrshort{gd} and its staff.
+
+% \subsubsection{Implementation}
+% To meet these Requirements the smart.finder SDI was choosen as base software. As it can not meet all requirements standalone (for example it can only work with ISO 19115/ISO 19119, INPSIRE or GDI DE Metadata) new software components were conceptualized and implemented to meet the designated requirements.
+
+% % \begin{figure}[t]
+% % 	\caption{Planned software components (partial abstracted)}
+% % 	\label{fig:components}
+% % 	\includegraphics[width=16cm]{components.png}
+% % 	\centering
+% % \end{figure}
+% The new Software consists of a gd-nrw-api, gd-nrw-dam-smartfinder-sdi, gd-nrw-dam and gd-nrw-datastore.
+% In the following each software component will be shortly described:
+% \begin{description}[]
+% 	\item[gd-nrw-dam-smartfinder-sdi]: This represents the smart.finder SDI, comprising several software components, including the smartfinder-search, smartfinder-editor, smartfinder-csw and smartfinder-sdi, as well as the gd-nrw-dam-portal.
+% 	      \begin{description}[]
+% 		      \item[smartfinder-search]: This component is responsible for managing data. It operates on an integrated Apache Solr instance to enable the search and filter capabilites of the smartfinder. It also enables features such as full-text search, geo-searches, and filtering for specific attribute values.
+% 		      \item[smartfinder-editor]: This component represents the smart.editor, which enables the editing of Metadata in compliance with ISO 19115/ISO 19119, INSPIRE, or GDI DE.
+% 		      \item[smartfinder-csw]: This component serves as the \glsxtrshort{csw} interface, enabling the dissemination of data to other portals, including the GEOportal.NRW.
+% 		      \item[smartfinder-sdi]: This component constitutes the user interface for searching and accessing datasets.
+% 		      \item[gd-nrw-dam-portal]: This component is an adapted version of the smartfinder-sdi component.
+% 	      \end{description}
+% 	\item[gd-nrw-dam]: This component offers CRUD functionality for metadata, including a frontend for Multi-Edit Metadata and Editing Single Metadata.
+% 	\item[gd-nrw-datastore]: This component is responsible for the raw data access. It has the ability to function with both the raw file system and S3 Storages. It offers fundamental CRUD capabilities for the data.
+% 	\item[gd-nrw-api]: This component stores the metadata and manages the communication between the newly developed software components and the smartfinder-sdi.
+% \end{description}
+% The general workflow for documents is that all editing is done by \glsxtrshort{gd} Staff, therefore their component handle all editing.
+
+% As the GD wanted to keept its own Metadata scheme, an additional database was required to save these Attributes.  This database  is called gd-nrw-metadata. Its schema special developed to not allow any M-N relationships, as this was required.
+
+
+% % \begin{figure}[t]
+% % 	\caption{Planned Deployment Diagramm}
+% % 	\label{fig:deployment}
+% % 	\includegraphics[width=16cm]{deployment.png}
+% % 	\centering
+% % \end{figure}
+
+% To achieve the goal of splitting the data between two hosts, there are now two datastores that can be switched in place. This is necessary to allow authorised users to access sensitive data. The metadata is still completely hosted by IT.NRW, but can be locked behind a login and is therefore not available to the public. The aim of this configuration is to duplicate as few services as possible.
+% An alternative was to build a complete clone system for IT.NRW and \glsxtrshort{gd} and only synchronise the open access datasets.
+
+% \subsubsection{My Participation}
+% My involvement in this project focused on the development of new software components for a prototype. Furthermore, I made modifications to the smartfinder-sdi.
+
+% % \begin{figure}[t]
+% % 	\caption{Database Scheme}
+% % 	\label{fig:db}
+% % 	\includegraphics[width=16cm]{db3.png}
+% % 	\centering
+% % \end{figure}
+
+% The initial prototype commenced as a basic project employing FastAPI and Python. It also integrated an added PostgreSQL database. The principal objective was to construct a database schema tailored to our requirements. The final configuration is depicted in Graphic \ref{fig:db}. We opted for a flat structure with no N-M relationships. 
+% Also, I designed the frontend. Our technological stack for the frontend consisted of Vue and Vuetify, with the inclusion of a Vite development server. The primary Vue components that I developed include Single Editing for modifying a single Metadataset and Multi-Edit for modifying multiple Metadatasets. To create Single Editing, I used a mockup as a template to base my development on. I designed and conceptualised Multi-Editing myself, as demonstrated in figure \ref{fig:multiedit}.  
+
+% Later on in the project, I developed an additional front-end for a shopping cart, which serves as an intermediary website between the Smartfinder and the new components. Moreover, I developed a front-end for the administrator to configure various attributes for editing.
+
+% % \begin{figure}[t]
+% % 	\caption{Screenshot MultiEditing}
+% % 	\label{fig:multiedit}
+% % 	\includegraphics[width=16cm]{multiedit.png}
+% % 	\centering
+% % \end{figure}
 % \begin{figure}[t]
-% 	\caption{Use case diagram, which visualized some functional requirements}
-% 	\label{fig:usecase}
-% 	\includegraphics[width=16cm]{usecase_diagramm.png}
+% 	\caption{Vue Java Controller}
+% 	\label{fig:vue}
+% 	\begin{lstlisting}[language=java, frame=single]
+%         @Controller
+%         public class VueController {
+%             @RequestMapping(value = "/*/{path:[^\\.]*}")
+%             public String redirect(){
+%                 return "forward:/";
+%             }
+
+
+%         }
+
+%         \end{lstlisting}
 % 	\centering
 % \end{figure}
 
-In addition, there are a number of quality requirements that focus primarily on data integrity and the tech stack used for development. For example, the software developed should be able to live in the cloud or on a dedicated machine.
 
-A final requirement is that the system needs to be split. It should mainly run on the servers of IT.NRW. But only non-sensitive data should be hosted there. Sensitive data should be hosted and only accessible by the \glsxtrshort{gd} and its staff.
+% After that, a decision was made to drop Python and FastAPI in favour of Spring Boot and Java. Therefore, I have commenced composing the gd-nrw-dam module. The gd-nrw-datastore module is integrated into the prototype of the gd-nrw-dam module. This began by implementing the required Spring Data classes and interfaces, followed by Afterwards, I began implementing the fundamental endpoints for CRUD operations to restore functionality to my frontend. Additionally, the capacities to host the built front-end on the Spring Boot server were incorporated. I developed a special Spring Boot controller to keep the Vue router component of the frontend working, as it controls the routing for which page is loaded. The code for this can be found in \ref{fig:vue}. It should be noted that any requests that match the applied regex pattern will be directed to the Vue Router. 
 
-\subsubsection{Implementation}
-To meet these Requirements the smart.finder SDI was choosen as base software. As it can not meet all requirements standalone (for example it can only work with ISO 19115/ISO 19119, INPSIRE or GDI DE Metadata) new software components were conceptualized and implemented to meet the designated requirements.
+% Following that, I developed an Azure build pipeline for automated deployment on our test system.  To achieve this, I restructured the project into two separate components: the frontend and the backend, each with its own pom.xml file. Additionally, there is a pom file for the entire project, enabling Maven to build the project with the complete frontend included in the backend for the pipeline. The tomcat-maven-plugin was then used for deployment to our test machine.
 
-% \begin{figure}[t]
-% 	\caption{Planned software components (partial abstracted)}
-% 	\label{fig:components}
-% 	\includegraphics[width=16cm]{components.png}
-% 	\centering
+% Later, I developed the Sfsdi API component, which serves as a predecessor to the gd-nrw API. It is a Spring Boot application that accesses the Smartfinder-Search module and alters its Solr database. During development, I extended the smartfinder-search Solr core to handle additional data types beyond ISO. Moreover, I enhanced the frontend of the smartfinder-sdi, effectively creating the gd-nrw-dam-portal component.
+% Also i created an automated ISO XML generation.
+
+% Finally, I have developed several complex features, including thumbnail generation for images and PDFs, on-the-fly zipped group downloads, \glsxtrshort{iptc}/\glsxtrshort{exif} read and write capabilities, and the deployment of a Redis Instance for fast and secure storage. These addition will facilitate the transition from the smartfinder to the new components. Also i deployed an Nginx instance as a reverse proxy for basic authentication, with TLS support. 
+
+
+
+% \subsection{\glsxtrfull{dz}}
+% \subsubsection{Introduction}
+% In the wake of the catastrophic flooding in Ahrtal, significant deficiencies in the hazard prevention and emergency response systems of (NRW) were exposed. Critical challenges were observed in the coordination and communication among dispatched units, such as the Federal Agency for Technical Relief (\glsxtrshort{thw}) and the fire department. Effective communication and organization are crucial for swift and efficient emergency responses. 
+
+% Following the enactment of the "Krisenbewältigungsgesetz" in NRW in December 2022, the state government officially recognized this deficiency as an emergency situation on February 23. In response, a budget of €500,000 was allocated to address this issue.
+
+% con terra, in collaboration with IT.NRW, submitted a proposal to develop a solution to these challenges. Their proposed solution is the creation of a digital twin, designed to aggregate and optimally visualize all relevant data for various potential scenarios. This solution aims to integrate multiple datasets from diverse sources, including the GDI-NW, LVN, and the Federal Agency for Cartography and Geodesy (BKG).
+
+
+
+% \subsubsection{As-is Status}
+% There are currently no central systems in place to handle this kind of task. Mostly there are department specific solutions or even general purpose Systems like QGIS or ArcGIS.
+
+
+% \subsubsection{Requirements}
+% This project, primarily a consultancy initiative aimed at developing a prototype, has a set of flexible yet pivotal requirements. Some requirements were also refined and established in collaboration with fire departments during the project's course. Below is a summary of the key requirements:
+
+% \begin{description}[]
+%     \item[Three-Dimensional Capability]: Reflecting the three-dimensional nature of real-world challenges, the solution must be capable of visualizing 3D data and performing basic general-purpose operations, such as measurements, in a 3D environment.
+%     \item[Scenario-Optimized Geodata]: The digital twin should tailor its data visualization and accessibility for different emergency scenarios, acknowledging that not all datasets are suitable for every scenario. Primary scenario groups include Fire, Earth, Water, and Air.
+%     \item[Compliance with \glsxtrshort{bhkg}]: The prototype should be developed with the objective of planning, monitoring, and follow-up in accordance with \glsxtrshort{bhkg} standards.
+%     \item[Target Group - Authorities and Security Organizations]: The prototype should be user-friendly for its target audience, which includes authorities and organizations involved in security tasks, without assuming extensive geospatial knowledge.
+%     \item[Cloud-Based Solution]: The entire application should be cloud-based, ensuring accessibility and scalability.
+%     \item[Fine-Grained Access Control]: Given the potential inclusion of sensitive data (e.g., \glsxtrshort{kritis} data), the application must feature a robust access control system, allowing users to view only data relevant to their roles and responsibilities.
+%     \item[Analysis Tools]: The application should offer comprehensive analysis tools. For the prototype, these will include the ability to identify and assess the accessibility of protected assets, dynamically determine water levels in 3D, and simulate the spread of smoke clouds in 3D.
+%     \item[Integration of 3D Meshes]: The prototype should incorporate a detailed 3D mesh, which is currently being developed for the entire state of NRW.
+%     \item[EPSG: 25832 Standard]: As a governmental project, the application must utilize the EPSG: 25832 standard for all geospatial data.
+% \end{description}
+
+% However, it is important to note that not all these requirements will be fully met in the initial phase of this project.
+
+
+% \subsubsection{Implementation}
+% The project used as a base mapapps and was in an agile manner developed. From the requirements just a few were implemented.
+
+% \subsubsection{My Participation}
+% I joined the project in its final stages, focusing on a limited but significant set of tasks. My primary responsibility involved integrating data provided by the fire department. I worked with a PEI Dataset, which consisted of radio messages containing location data, such as Short PDU, Long PDU, or STATUS. An example of this data is shown in Figure \ref{fig:pei}. The first line of each message includes metadata, like the transmitting and receiving parties, and the message type. The HEX-Code following this metadata can be converted to binary and decoded according to the ETSI TS 100 392-18-1 standard. I developed a Python script to automate this process, outputting the data as an ESRI feature layer.
+
+% \begin{figure}[H]
+%     \caption{Fire Department Data Entry Example}
+%     \label{fig:pei}
+%     \begin{lstlisting}[frame=single]
+%         +CTSDSR: 108,262100112345678,1,262100188888888,1,88,1
+%         0A004C9CD24739C9384820
+%     \end{lstlisting}
+%     \centering
 % \end{figure}
-The new Software consists of a gd-nrw-api, gd-nrw-dam-smartfinder-sdi, gd-nrw-dam and gd-nrw-datastore.
-In the following each software component will be shortly described:
-\begin{description}[]
-	\item[gd-nrw-dam-smartfinder-sdi]: This represents the smart.finder SDI, comprising several software components, including the smartfinder-search, smartfinder-editor, smartfinder-csw and smartfinder-sdi, as well as the gd-nrw-dam-portal.
-	      \begin{description}[]
-		      \item[smartfinder-search]: This component is responsible for managing data. It operates on an integrated Apache Solr instance to enable the search and filter capabilites of the smartfinder. It also enables features such as full-text search, geo-searches, and filtering for specific attribute values.
-		      \item[smartfinder-editor]: This component represents the smart.editor, which enables the editing of Metadata in compliance with ISO 19115/ISO 19119, INSPIRE, or GDI DE.
-		      \item[smartfinder-csw]: This component serves as the \glsxtrshort{csw} interface, enabling the dissemination of data to other portals, including the GEOportal.NRW.
-		      \item[smartfinder-sdi]: This component constitutes the user interface for searching and accessing datasets.
-		      \item[gd-nrw-dam-portal]: This component is an adapted version of the smartfinder-sdi component.
-	      \end{description}
-	\item[gd-nrw-dam]: This component offers CRUD functionality for metadata, including a frontend for Multi-Edit Metadata and Editing Single Metadata.
-	\item[gd-nrw-datastore]: This component is responsible for the raw data access. It has the ability to function with both the raw file system and S3 Storages. It offers fundamental CRUD capabilities for the data.
-	\item[gd-nrw-api]: This component stores the metadata and manages the communication between the newly developed software components and the smartfinder-sdi.
-\end{description}
-The general workflow for documents is that all editing is done by \glsxtrshort{gd} Staff, therefore their component handle all editing.
 
-As the GD wanted to keept its own Metadata scheme, an additional database was required to save these Attributes.  This database  is called gd-nrw-metadata. Its schema special developed to not allow any M-N relationships, as this was required.
+% Additionally, I developed a new map control tool, enhancing user interaction with map features such as position, rotation, tilt, and zoom. This tool allows users to intuitively adjust the map's rotation by dragging the north arrow around a circle, as illustrated in Figure \ref{fig:mapcontrol}.
 
-
-% \begin{figure}[t]
-% 	\caption{Planned Deployment Diagramm}
-% 	\label{fig:deployment}
-% 	\includegraphics[width=16cm]{deployment.png}
-% 	\centering
+% \begin{figure}[H]
+%     \caption{Map Control Tool Screenshot}
+%     \label{fig:mapcontrol}
+%     \includegraphics[width=16cm]{dzgefahr_mapcontrol.png}
+%     \centering
 % \end{figure}
 
-To achieve the goal of splitting the data between two hosts, there are now two datastores that can be switched in place. This is necessary to allow authorised users to access sensitive data. The metadata is still completely hosted by IT.NRW, but can be locked behind a login and is therefore not available to the public. The aim of this configuration is to duplicate as few services as possible.
-An alternative was to build a complete clone system for IT.NRW and \glsxtrshort{gd} and only synchronise the open access datasets.
+% I also improved the animation of moving objects in mapapps, particularly for a layer that displays live bus positions in Münster. Previously, buses would appear to 'teleport' across the map; my update, using the animejs library, enabled smooth motion during position updates.
 
-\subsubsection{My Participation}
-My involvement in this project focused on the development of new software components for a prototype. Furthermore, I made modifications to the smartfinder-sdi.
+% My final task was to assess the compatibility of Esri's ArcGIS Indoors Technology with mapapps. The evaluation concluded that compatibility is currently limited.
 
-% \begin{figure}[t]
-% 	\caption{Database Scheme}
-% 	\label{fig:db}
-% 	\includegraphics[width=16cm]{db3.png}
-% 	\centering
-% \end{figure}
+% \subsection{Geosphere}
+% \subsubsection{Introduction}
+% \subsubsection{As-is Status}
+% \subsubsection{Requirements}
+% \subsubsection{Implementation}
+% \subsubsection{My Participation}
 
-The initial prototype commenced as a basic project employing FastAPI and Python. It also integrated an added PostgreSQL database. The principal objective was to construct a database schema tailored to our requirements. The final configuration is depicted in Graphic \ref{fig:db}. We opted for a flat structure with no N-M relationships. 
-Also, I designed the frontend. Our technological stack for the frontend consisted of Vue and Vuetify, with the inclusion of a Vite development server. The primary Vue components that I developed include Single Editing for modifying a single Metadataset and Multi-Edit for modifying multiple Metadatasets. To create Single Editing, I used a mockup as a template to base my development on. I designed and conceptualised Multi-Editing myself, as demonstrated in figure \ref{fig:multiedit}.  
-
-Later on in the project, I developed an additional front-end for a shopping cart, which serves as an intermediary website between the Smartfinder and the new components. Moreover, I developed a front-end for the administrator to configure various attributes for editing.
-
-% \begin{figure}[t]
-% 	\caption{Screenshot MultiEditing}
-% 	\label{fig:multiedit}
-% 	\includegraphics[width=16cm]{multiedit.png}
-% 	\centering
-% \end{figure}
-\begin{figure}[t]
-	\caption{Vue Java Controller}
-	\label{fig:vue}
-	\begin{lstlisting}[language=java, frame=single]
-        @Controller
-        public class VueController {
-            @RequestMapping(value = "/*/{path:[^\\.]*}")
-            public String redirect(){
-                return "forward:/";
-            }
-        
-        
-        }
-        
-        \end{lstlisting}
-	\centering
-\end{figure}
-
-
-After that, a decision was made to drop Python and FastAPI in favour of Spring Boot and Java. Therefore, I have commenced composing the gd-nrw-dam module. The gd-nrw-datastore module is integrated into the prototype of the gd-nrw-dam module. This began by implementing the required Spring Data classes and interfaces, followed by Afterwards, I began implementing the fundamental endpoints for CRUD operations to restore functionality to my frontend. Additionally, the capacities to host the built front-end on the Spring Boot server were incorporated. I developed a special Spring Boot controller to keep the Vue router component of the frontend working, as it controls the routing for which page is loaded. The code for this can be found in \ref{fig:vue}. It should be noted that any requests that match the applied regex pattern will be directed to the Vue Router. 
-
-Following that, I developed an Azure build pipeline for automated deployment on our test system.  To achieve this, I restructured the project into two separate components: the frontend and the backend, each with its own pom.xml file. Additionally, there is a pom file for the entire project, enabling Maven to build the project with the complete frontend included in the backend for the pipeline. The tomcat-maven-plugin was then used for deployment to our test machine.
-
-Later, I developed the Sfsdi API component, which serves as a predecessor to the gd-nrw API. It is a Spring Boot application that accesses the Smartfinder-Search module and alters its Solr database. During development, I extended the smartfinder-search Solr core to handle additional data types beyond ISO. Moreover, I enhanced the frontend of the smartfinder-sdi, effectively creating the gd-nrw-dam-portal component.
-Also i created an automated ISO XML generation.
-
-Finally, I have developed several complex features, including thumbnail generation for images and PDFs, on-the-fly zipped group downloads, \glsxtrshort{iptc}/\glsxtrshort{exif} read and write capabilities, and the deployment of a Redis Instance for fast and secure storage. These addition will facilitate the transition from the smartfinder to the new components. Also i deployed an Nginx instance as a reverse proxy for basic authentication, with TLS support. 
-
-
-
-\subsection{\glsxtrfull{dz}}
-\subsubsection{Introduction}
-In the wake of the catastrophic flooding in Ahrtal, significant deficiencies in the hazard prevention and emergency response systems of (NRW) were exposed. Critical challenges were observed in the coordination and communication among dispatched units, such as the Federal Agency for Technical Relief (\glsxtrshort{thw}) and the fire department. Effective communication and organization are crucial for swift and efficient emergency responses. 
-
-Following the enactment of the "Krisenbewältigungsgesetz" in NRW in December 2022, the state government officially recognized this deficiency as an emergency situation on February 23. In response, a budget of €500,000 was allocated to address this issue.
-
-con terra, in collaboration with IT.NRW, submitted a proposal to develop a solution to these challenges. Their proposed solution is the creation of a digital twin, designed to aggregate and optimally visualize all relevant data for various potential scenarios. This solution aims to integrate multiple datasets from diverse sources, including the GDI-NW, LVN, and the Federal Agency for Cartography and Geodesy (BKG).
-
-
-
-\subsubsection{As-is Status}
-There are currently no central systems in place to handle this kind of task. Mostly there are department specific solutions or even general purpose Systems like QGIS or ArcGIS.
-
-
-\subsubsection{Requirements}
-This project, primarily a consultancy initiative aimed at developing a prototype, has a set of flexible yet pivotal requirements. Some requirements were also refined and established in collaboration with fire departments during the project's course. Below is a summary of the key requirements:
-
-\begin{description}[]
-    \item[Three-Dimensional Capability]: Reflecting the three-dimensional nature of real-world challenges, the solution must be capable of visualizing 3D data and performing basic general-purpose operations, such as measurements, in a 3D environment.
-    \item[Scenario-Optimized Geodata]: The digital twin should tailor its data visualization and accessibility for different emergency scenarios, acknowledging that not all datasets are suitable for every scenario. Primary scenario groups include Fire, Earth, Water, and Air.
-    \item[Compliance with \glsxtrshort{bhkg}]: The prototype should be developed with the objective of planning, monitoring, and follow-up in accordance with \glsxtrshort{bhkg} standards.
-    \item[Target Group - Authorities and Security Organizations]: The prototype should be user-friendly for its target audience, which includes authorities and organizations involved in security tasks, without assuming extensive geospatial knowledge.
-    \item[Cloud-Based Solution]: The entire application should be cloud-based, ensuring accessibility and scalability.
-    \item[Fine-Grained Access Control]: Given the potential inclusion of sensitive data (e.g., \glsxtrshort{kritis} data), the application must feature a robust access control system, allowing users to view only data relevant to their roles and responsibilities.
-    \item[Analysis Tools]: The application should offer comprehensive analysis tools. For the prototype, these will include the ability to identify and assess the accessibility of protected assets, dynamically determine water levels in 3D, and simulate the spread of smoke clouds in 3D.
-    \item[Integration of 3D Meshes]: The prototype should incorporate a detailed 3D mesh, which is currently being developed for the entire state of NRW.
-    \item[EPSG: 25832 Standard]: As a governmental project, the application must utilize the EPSG: 25832 standard for all geospatial data.
-\end{description}
-
-However, it is important to note that not all these requirements will be fully met in the initial phase of this project.
-
-
-\subsubsection{Implementation}
-The project used as a base mapapps and was in an agile manner developed. From the requirements just a few were implemented.
-
-\subsubsection{My Participation}
-I joined the project in its final stages, focusing on a limited but significant set of tasks. My primary responsibility involved integrating data provided by the fire department. I worked with a PEI Dataset, which consisted of radio messages containing location data, such as Short PDU, Long PDU, or STATUS. An example of this data is shown in Figure \ref{fig:pei}. The first line of each message includes metadata, like the transmitting and receiving parties, and the message type. The HEX-Code following this metadata can be converted to binary and decoded according to the ETSI TS 100 392-18-1 standard. I developed a Python script to automate this process, outputting the data as an ESRI feature layer.
-
-\begin{figure}[H]
-    \caption{Fire Department Data Entry Example}
-    \label{fig:pei}
-    \begin{lstlisting}[frame=single]
-        +CTSDSR: 108,262100112345678,1,262100188888888,1,88,1
-        0A004C9CD24739C9384820
-    \end{lstlisting}
-    \centering
-\end{figure}
-
-Additionally, I developed a new map control tool, enhancing user interaction with map features such as position, rotation, tilt, and zoom. This tool allows users to intuitively adjust the map's rotation by dragging the north arrow around a circle, as illustrated in Figure \ref{fig:mapcontrol}.
-
-\begin{figure}[H]
-    \caption{Map Control Tool Screenshot}
-    \label{fig:mapcontrol}
-    \includegraphics[width=16cm]{dzgefahr_mapcontrol.png}
-    \centering
-\end{figure}
-
-I also improved the animation of moving objects in mapapps, particularly for a layer that displays live bus positions in Münster. Previously, buses would appear to 'teleport' across the map; my update, using the animejs library, enabled smooth motion during position updates.
-
-My final task was to assess the compatibility of Esri's ArcGIS Indoors Technology with mapapps. The evaluation concluded that compatibility is currently limited.
-
-\subsection{Geosphere}
-\subsubsection{Introduction}
-\subsubsection{As-is Status}
-\subsubsection{Requirements}
-\subsubsection{Implementation}
-\subsubsection{My Participation}
-
-\section{Reflection}
+% \section{Reflection}
 
 \clearpage
 \printglossary[type=\acronymtype]
