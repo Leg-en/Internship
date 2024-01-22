@@ -96,9 +96,9 @@ The \glsxtrshort{gd} digital archive contains over 450,000 assets. Assets in thi
 These assets are currently located on a shared drive and can be managed via the file system. They also use a piece of software called Cumulus. This software primarily manages the metadata associated with the assets. Currently, the \glsxtrshort{gd} does not use any known metadata schema, but instead uses a list of custom attributes, such as Rating, Special Instructions and Label.
 They also use \glsxtrshort{exif} and \glsxtrshort{iptc} metadata information for images, which is not managed by Cumulus. Instead, this is done with an additional software component. %Likely Irfanview 
 
-\subsubsection{The new system}
-The new system exists maninly as a concept. But a few features were already implemented as a prototype for the \glsxtrshort{gd} to test them.
-\myparagraph{Requirements}
+% \subsubsection{The new system}
+% The new system exists maninly as a concept. But a few features were already implemented as a prototype for the \glsxtrshort{gd} to test them.
+\subsubsection{Requirements}
 The new system should eliminate the inadequacies of the old system. Therefore a list of Requirements were collected. In the following there is a subset example of the main functional requirements:
 \begin{itemize}
 	\item Keeping the Internal metadata attributes (and adding new ones)
@@ -126,7 +126,7 @@ In addition, there are a number of quality requirements that focus primarily on 
 
 A final requirement is that the system needs to be split. It should mainly run on the servers of IT.NRW. But only non-sensitive data should be hosted there. Sensitive data should be hosted and only accessible by the \glsxtrshort{gd} and its staff.
 
-\myparagraph{Implementation}
+\subsubsection{Implementation}
 To meet these Requirements the smart.finder SDI was choosen as base software. As it can not meet all requirements standalone (for example it can only work with ISO 19115/ISO 19119, INPSIRE or GDI DE Metadata) new software components were conceptualized and implemented to meet the designated requirements.
 
 \begin{figure}[t]
@@ -277,6 +277,13 @@ Additionally, I developed a new map control tool, enhancing user interaction wit
 I also improved the animation of moving objects in mapapps, particularly for a layer that displays live bus positions in Münster. Previously, buses would appear to 'teleport' across the map; my update, using the animejs library, enabled smooth motion during position updates.
 
 My final task was to assess the compatibility of Esri's ArcGIS Indoors Technology with mapapps. The evaluation concluded that compatibility is currently limited.
+
+\subsection{Geosphere}
+\subsubsection{Introduction}
+\subsubsection{As-is Status}
+\subsubsection{Requirements}
+\subsubsection{Implementation}
+\subsubsection{My Participation}
 
 \section{Reflection}
 
