@@ -102,7 +102,7 @@ The Con Terra offers several benefits to its employees, including modern offices
 \subsubsection{Geologischer Dienst NRW - Metdata Asset Managment System}
 The  \glsxtrshort {gd} NRW has a large achieve of different assets, which are currently managed by a software named cumulus. As the used software is outdated, it does not meet the the current requirements.
 Primarily they  are required to make all data, where it is legally possible, open data \cite{GesetzZurForderung2017}.
-Additionally the GeolDG also requires the \glsxtrshort{gd} to make their accessible by the public \cite{GesetzZurStaatlichen2020}.
+Additionally, the GeolDG also requires the \glsxtrshort{gd} to make their accessible by the public \cite{GesetzZurStaatlichen2020}.
 
 Therefore, the main goal of this project was to conceptualize a new system and to implement parallel a prototype of it.
 The \glsxtrshort{gd} digital archive contains over 450,000 assets. Assets in this context are for example images, PDFs, TIFs or MP4s. However, any digital file can be an asset. The total data volume is over 2 terabytes.
@@ -119,7 +119,7 @@ The new system should eliminate the inadequacies of the old system. Therefore a 
               \item (Multi-)Edit Interface for Metadata
           \end{itemize}
     \item Sharing data
-    \item Update \glsxtrshort{exif} and \glsxtrshort{iptc} when an update occurs
+    \item Keep \glsxtrshort{exif} and \glsxtrshort{iptc} in sync
     \item Syncing/Translating Internal Metadata to ISO 19115/ISO 19119
     \item Different Search Operations
 \end{itemize}
@@ -128,16 +128,13 @@ In addition, there are a number of quality requirements that focus primarily on 
 
 A final requirement is that the system needs to be split. It should mainly run on the servers of IT.NRW. But only non-sensitive data should be hosted there. Sensitive data should be hosted and only accessible by the \glsxtrshort{gd} and its staff.
 \subsubsection{\glsxtrfull{dz}}
-In the wake of the catastrophic flooding in Ahrtal, significant deficiencies in the hazard prevention and emergency response systems of (NRW) were exposed. Critical challenges were observed in the coordination and communication among dispatched units, such as the Federal Agency for Technical Relief (\glsxtrshort{thw}) and the fire department. Effective communication and organization are crucial for swift and efficient emergency responses.
+In the wake of the catastrophic flooding in Ahrtal, significant deficiencies in the hazard prevention and emergency response systems (of NRW) were exposed. Critical challenges were observed in the coordination and communication among dispatched units, such as the  \glsxtrfull{thw} and the fire department. Effective communication and organization are crucial for swift and efficient emergency responses.
 
 Following the enactment of the "Krisenbewältigungsgesetz" in NRW in December 2022, the state government officially recognized this deficiency as an emergency situation on February 23. In response, a budget of €500,000 was allocated to address this issue.
 
 con terra, in collaboration with IT.NRW, submitted a proposal to develop a solution to these challenges. Their proposed solution is the creation of a digital twin, designed to aggregate and optimally visualize all relevant data for various potential scenarios. This solution aims to integrate multiple datasets from diverse sources, including the GDI-NW, LVN, and the Federal Agency for Cartography and Geodesy (BKG).
-
-
 There are currently no central systems in place to handle this kind of task. Mostly there are department specific solutions or even general purpose Systems like QGIS or ArcGIS.
-
-This project, primarily a consultancy initiative aimed at developing a prototype, has a set of flexible yet pivotal requirements. Some requirements were also refined and established in collaboration with fire departments during the project's course. Below is a summary of the key requirements:
+This consultancy project aims to develop a prototype which has flexible yet pivotal requirements. Some requirements were also refined and established in collaboration with fire departments during the project's course. Below is a summary of the key requirements:
 
 \begin{description}[]
     \item[Three-Dimensional Capability]: Reflecting the three-dimensional nature of real-world challenges, the solution must be capable of visualizing 3D data and performing basic general-purpose operations, such as measurements, in a 3D environment.
@@ -153,12 +150,14 @@ This project, primarily a consultancy initiative aimed at developing a prototype
 
 However, it is important to note that not all these requirements will be fully met in the initial phase of this project.
 \subsubsection{Geosphere}
+Geosphere is the central geoscientific institution for Austria, covering geology, geophysics, climatology, and meteorology.  It was formed by the merger of the Central Institute for Meteorology and Geodynamics (ZAMG), founded in 1851, the national meteorological and earthquake service, and the Geological Survey (GBA), founded in 1849.
+%Todo: Ergänzen warum wir das machen..
 \subsection{Assigned Work}
 \subsubsection{Geologischer Dienst NRW - Metadata Asset Management System}
 My involvement in this project focused on the development of new software components for a prototype. Furthermore, I made modifications to the smart.finder SDI.
 
 
-The initial prototype i made commenced as a basic project employing FastAPI and Python. It also integrated an added PostgreSQL database. The principal objective was to construct a database schema tailored to our requirements. We opted for a flat structure with no N-M relationships.
+The prototype I created was a basic project that used FastAPI and Python. It included an extra PostgreSQL database. The main goal was to design a database schema that met our needs. We chose a flat structure without any N-M relationships.
 Also, I designed the frontend. Our technological stack for the frontend consisted of Vue and Vuetify, with the inclusion of a Vite development server. The primary Vue components that I developed include Single Editing for modifying a single Metadata set and Multi-Edit for modifying multiple Metadatasets. To create Single Editing, I used a mockup as a template to base my development on. I designed, conceptualised and implemented Multi-Editing myself.
 
 Later on in the project, I developed an additional front-end for a shopping cart, which serves as an intermediary website between the smart.finder SDI and the new components. Moreover, I developed a front-end for the administrator to configure various attributes for editing.
@@ -180,18 +179,18 @@ Later on in the project, I developed an additional front-end for a shopping cart
 \end{figure}
 
 
-After that, a decision was made to drop Python and FastAPI in favour of Spring Boot and Java. This began by implementing the required Spring Data classes and interfaces.Afterwards I began implementing the fundamental endpoints for \glsxtrshort{crud} operations to restore functionality to the frontend. Additionally, the capacities to host the built front-end on the Spring Boot server were incorporated. I developed a special Spring Boot controller to keep the Vue router component of the frontend working, as it controls the routing. Incase a website should be laoded it redirects to the Vue Router and enables it to route it. The code for this can be found in \ref{fig:vue}. It should be noted that any requests that match the applied regex pattern will be directed to the Vue Router, even those that have no match in the Router.
+After that, a decision was made to drop Python and FastAPI in favour of Spring Boot and Java. This began by implementing the required Spring Data classes and interfaces. Afterwards I began implementing the fundamental endpoints for \glsxtrshort{crud} operations to restore functionality to the frontend. Additionally, the capacities to host the built front-end on the Spring Boot server were incorporated. I developed a special Spring Boot controller to keep the Vue router component of the frontend working, as it controls the routing. Incase a website should be laoded it redirects to the Vue Router and enables it to route it. The code for this can be found in \ref{fig:vue}. It should be noted that any requests that match the applied regex pattern will be directed to the Vue Router, even those that have no match in the Router.
 
-Following that, I developed an Azure build pipeline for automated deployment on our test system.  To achieve this, I restructured the project into two separate components: the frontend and the backend, each with its own pom.xml file. Additionally, there is a pom file for the entire project, enabling Maven to build the project with the complete frontend included in the backend for the pipeline. The tomcat-maven-plugin was then used for deployment to our test machine.
+An Azure build pipeline was developed to enable automated deployment on our test system. This required restructuring the project into two distinct components: the frontend and the backend. Each component is now a complete Maven project, with its own pom.xml file. Furthermore, the entire project is encapsulated in a separate Maven project, which also has its own pom.xml file. The Maven arrangement enables the project to be built with the fully integrated frontend and backend, specifically tailored for the pipeline. To deploy to our test machine, we utilized the tomcat-maven-plugin.
 
-Later, I developed an additional API component. It is a Spring Boot application that accesses the smart.finder SDI and alters its Solr database. During development, I extended the smart.finder SDI Solr core to handle additional data types beyond ISO. Moreover, I enhanced the frontend of the smart.finder SDI to display those attributes.
+Later, I developed an additional API component. It is a Spring Boot application that accesses the smart.finder SDI and alters its Solr database. During development, I extended the smart.finder SDI Solr core to handle additional attributes beyond ISO. Moreover, I enhanced the frontend of the smart.finder SDI to display those attributes.
 Also i created an automated ISO XML generation based on our new attributes.
 
 Finally, I have developed several complex features, including thumbnail generation for images and PDFs, on-the-fly zipped group downloads, \glsxtrshort{iptc}/\glsxtrshort{exif} read and write capabilities, and the deployment of a Redis Instance for fast and secure storage. This addition will facilitate the transition from the smartfinder to the new components. Also i deployed an Nginx instance as a reverse proxy for basic authentication, with TLS support.
 
 
 \subsubsection{\glsxtrfull{dz}}
-I joined the project in its final stages, focusing on a limited but significant set of tasks. My primary responsibility involved integrating data provided by the fire department. I worked with a PEI Dataset, which consisted of radio messages containing location data, such as Short PDU, Long PDU, or STATUS. An example of this data is shown in Figure \ref{fig:pei}. The first line of each message includes metadata, like the transmitting and receiving parties, and the message type. The HEX-Code following this metadata can be converted to binary and decoded according to the ETSI TS 100 392-18-1 standard. I developed a Python script to automate this process, outputting the data as an ESRI feature layer.
+I joined the project during its final stages and focused on a limited but significant set of tasks. My primary responsibility involved integrating data provided by the fire department. I worked with a PEI Dataset, which consisted of radio messages containing location data, such as Short PDU, Long PDU, or STATUS. An example of this data is shown in Figure \ref{fig:pei}. The first line of each message includes metadata, like the transmitting and receiving parties, and the message type. The HEX-Code following this metadata can be converted to binary and decoded according to the ETSI TS 100 392-18-1 standard. I developed a Python script to automate this process, outputting the data as an ESRI feature layer.
 
 \begin{figure}[H]
     \caption{Fire Department Data Entry Example}
@@ -212,18 +211,18 @@ Additionally, I developed a new map control tool, enhancing user interaction wit
     \centering
 \end{figure}
 
-I also improved the animation of moving objects in mapapps, particularly for a layer that displays live bus positions in Münster. Previously, buses would appear to 'teleport' across the map; my update, using the animejs library, enabled smooth motion during position updates.
+I also improved the animation of moving objects in map.apps, particularly for a layer that displays live bus positions in Münster. Previously, buses would appear to 'teleport' across the map; my update, using the animejs library, enabled smooth motion during position updates.
 
 My final task was to assess the compatibility of Esri's ArcGIS Indoors Technology with mapapps. The evaluation concluded that compatibility is currently limited.
 \subsubsection{Geosphere}
-...
+..
 
 
 
 \subsubsection{Study Relevant Competencies}
 During my internship, I applied concepts and skills from my academic curriculum in Geoinformatics and Spatial Data Science. The internship required me to use my software development competencies, which I developed through various modules in my study program. The internship required the development of software components using programming languages such as JavaScript, Java, and Python. Basic database management competencies, which were also a part of my academic training, proved to be highly valuable in addition to these programming skills.
 
-However, it is noteworthy that certain aspects essential to my internship were not directly addressed within the scope of my university curriculum. The curriculum did not cover the use of User Interface (UI) Frameworks such as React, Angular, or Vue, which are practical applications of frameworks and libraries in the aforementioned programming languages. This gap in my formal education required me to undertake self-directed learning to gain proficiency in these areas.
+However, it is noteworthy that certain aspects essential to my internship were not directly addressed within the scope of my university curriculum. The curriculum did not cover the use of User Interface (UI) Frameworks such as React, Angular, or Vue. Or other practical applications of frameworks and libraries in the aforementioned programming languages. This gap in my formal education required me to undertake self-directed learning to gain proficiency in these areas.
 
 Moreover, I did not receive formal education on the use of Object-Relational Mapping (ORMs) for database access, a critical component in modern software development, which was extensively utilized during my internship. Furthermore, the planning and development of complex and complete infrastructures, which are pivotal in large-scale software projects, were not covered in my academic syllabus.
 
@@ -265,7 +264,7 @@ In the following ic will describe various Communication competencies in a short 
 \section{Master Thesis Implications}
 The internship experience did not provide topics that would align with the requirements or themes suitable for a Master's thesis. However, I proactively addressed this by discussing potential thesis topics with my supervisor within the broader scope of the organization's interests and projects.
 
-The discussions mainly focused on Wind Turbine Placement, a subject of growing interest and relevance in sustainable energy and spatial planning. con terra has expressed a clear interest in the placement of wind turbines. In order to simplify and optimise the process of placing wind turbines, the federal states are actively looking for software solutions. This aligns with con terra's ambitions for a digital twin.
+The discussions centred on Wind Turbine Placement, a subject of growing interest and relevance in sustainable energy and spatial planning. con terra has expressed a clear interest in this topic. The federal states are actively seeking software solutions to simplify and optimise the process of placing wind turbines. This aligns with con terra's ambitions for a digital twin.
 
 A digital twin involves creating a virtual replica of a physical entity or system, offering a sophisticated approach to analyzing and optimizing wind turbine placement. This approach can contribute significantly to the efficient and sustainable development of wind energy resources, which is critical for environmental sustainability and energy transition.
 
