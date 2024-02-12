@@ -60,6 +60,7 @@
 \newacronym{bhkg}{BHKG}{Gesetz über den Brandschutz, die Hilfeleistung und den Katastrophenschutz}
 \newacronym{kritis}{KRITIS}{Kritische Infrastrukturen}
 \newacronym{crud}{CRUD}{CREATE, READ, UPDATE, DELETE}
+\newacronym{rcp}{RCP}{Representative Concentration Pathways}
 \begin{document}
 
 
@@ -98,7 +99,7 @@ The Con Terra offers several benefits to its employees, including modern offices
 % As a Master’s student specializing in Geoinformatics and Spatial Data Science, my internship at con terra represents a strategic step in my professional development. Given my previous work experience with the company, I am already familiar with its standing as a leading geospatial software provider in Münster. This familiarity allows me to integrate seamlessly into the team and contribute effectively from the onset. The focus of the internship on software development is in perfect harmony with my academic training, promising a direct application of theoretical knowledge in a practical setting. My objective during this internship is to further refine my software development skills, leveraging the opportunities at con terra to enhance my technical expertise in geospatial IT
 \clearpage
 \section{Work Experience}
-\subsection{Project Participation}
+\subsection{Project Context}
 \subsubsection{Geologischer Dienst NRW - Metdata Asset Managment System}
 The  \glsxtrshort {gd} NRW has a large achieve of different assets, which are currently managed by a software named cumulus. As the used software is outdated, it does not meet the the current requirements.
 Primarily they  are required to make all data, where it is legally possible, open data \cite{GesetzZurForderung2017}.
@@ -150,7 +151,8 @@ This consultancy project aims to develop a prototype which has flexible yet pivo
 
 However, it is important to note that not all these requirements will be fully met in the initial phase of this project.
 \subsubsection{Geosphere}
-Geosphere is the central geoscientific institution for Austria, covering geology, geophysics, climatology, and meteorology.  It was formed by the merger of the Central Institute for Meteorology and Geodynamics (ZAMG), founded in 1851, the national meteorological and earthquake service, and the Geological Survey (GBA), founded in 1849.
+Geosphere is the central geoscientific institution for Austria, covering geology, geophysics, climatology, and meteorology.  It was formed by the merger of the Central Institute for Meteorology and Geodynamics (ZAMG), founded in 1851, the national meteorological and earthquake service, and the Geological Survey (GBA), founded in 1849. 
+Geosphere, needs an new Climate Atlas. They stated they need this because of EU Regulations. The new atlas should be developed by the con terra, as they were recommended. Currently the project is in the acquisition stage and i developed a prototype with few example datasets.
 %Todo: Ergänzen warum wir das machen..
 \subsection{Assigned Work}
 \subsubsection{Geologischer Dienst NRW - Metadata Asset Management System}
@@ -162,7 +164,7 @@ Also, I designed the frontend. Our technological stack for the frontend consiste
 
 Later on in the project, I developed an additional front-end for a shopping cart, which serves as an intermediary website between the smart.finder SDI and the new components. Moreover, I developed a front-end for the administrator to configure various attributes for editing.
 
-\begin{figure}[t]
+\begin{figure}[H]
     \caption{Vue Java Controller}
     \label{fig:vue}
     \begin{lstlisting}[language=java, frame=single]
@@ -215,26 +217,24 @@ I also improved the animation of moving objects in map.apps, particularly for a 
 
 My final task was to assess the compatibility of Esri's ArcGIS Indoors Technology with mapapps. The evaluation concluded that compatibility is currently limited.
 \subsubsection{Geosphere}
-..
+For this project, I primarily developed a prototype that can be presented. The prototype was based on a map.apps project.    I received multiple datasets with \glsxtrfull{rcp} Scenarios (RCP 2.6, RCP 4.5, RCP 8.5) that were split into two types: timeseries data and median data. The median datasets only contained the median value for a given period for the entirety of Austria. The dataset includes complete model simulations and associated statics for Austria, presented in rasterized 1000 x 1000m blocks. The variable measured is 'SU30', representing the number of days with temperatures over 30 degrees Celsius.
+The median data was visualized in map.apps and a user interface was developed to provide more intuitive control over the displayed data. In addition, I developed a Python backend and frontend to enable the visualization of time series data in map.apps. The Python backend was based on FastAPI and accessed the datacubes directly. The frontend creates plots on the fly using Plotly. Finally, I created a reporting function that allows the user to generate a report based on the selected data. The data is then aggregated into a PDF that can be printed.
 
 
 
 \subsubsection{Study Relevant Competencies}
 During my internship, I applied concepts and skills from my academic curriculum in Geoinformatics and Spatial Data Science. The internship required me to use my software development competencies, which I developed through various modules in my study program. The internship required the development of software components using programming languages such as JavaScript, Java, and Python. Basic database management competencies, which were also a part of my academic training, proved to be highly valuable in addition to these programming skills.
 
-However, it is noteworthy that certain aspects essential to my internship were not directly addressed within the scope of my university curriculum. The curriculum did not cover the use of User Interface (UI) Frameworks such as React, Angular, or Vue. Or other practical applications of frameworks and libraries in the aforementioned programming languages. This gap in my formal education required me to undertake self-directed learning to gain proficiency in these areas.
+However, it is important to note that my university curriculum did not cover certain aspects that were essential to my internship. Specifically, the use of Frontend Frameworks such as React, Angular, or Vue, as well as other practical applications of frameworks and libraries in these programming languages were not addressed. As a result, I had to learn on my own to become proficient in these areas.
 
 Moreover, I did not receive formal education on the use of Object-Relational Mapping (ORMs) for database access, a critical component in modern software development, which was extensively utilized during my internship. Furthermore, the planning and development of complex and complete infrastructures, which are pivotal in large-scale software projects, were not covered in my academic syllabus.
 
 Furthermore, my formal education did not cover advanced concepts such as Reverse Proxies and Secure Sockets Layer (SSL) encryption, which are crucial for ensuring secure and efficient web communication. Additionally, I did not receive any instruction on the application of Geographic Information Systems (GIS) in the context of 3D environments.
 
-In summary, my academic background in Geoinformatics and Spatial Data Science provided a strong foundation in software development and basic database management. However, my internship experience highlighted the need for a more expansive curriculum that includes practical applications of modern software frameworks, advanced infrastructure planning, and the integration of GIS in 3D modelling. This will better prepare students for the evolving demands of the industry.
+% In summary, my academic background in Geoinformatics and Spatial Data Science provided a strong foundation in software development and basic database management. However, my internship experience highlighted the need for a more expansive curriculum that includes practical applications of modern software frameworks, advanced infrastructure planning, and the integration of GIS in 3D modelling. This will better prepare students for the evolving demands of the industry.
 
 \subsubsection{The state of planning}
-The course of my internship underwent significant changes from the initial plan, which I had outlined in collaboration with my supervisor, due to practical aspects of the work environment. Only the Geologischer Dienst NRW project was completed as planned.
-
-Subsequently, I was involved in the Open Pioneer track, with a focus on integrating 3D functionalities using DeckGL to enhance its capabilities. However, the plan was later reassessed and deemed infeasible. 
-
+Afterwards, I was supposed to be involved in the Open Pioneer track, where I would integrate 3D functionalities using DeckGL to enhance its capabilities. However, it was later reassessed and deemed infeasible. 
 As a result, my internship took a different direction, and I was reassigned to work on the DZGefahr project for a few months. Following this, I developed the Geosphere prototype.
 
 \section{Results Obtained}
@@ -270,7 +270,7 @@ A digital twin involves creating a virtual replica of a physical entity or syste
 Currently, the idea of focusing a Master's thesis on this topic is in its early stages and has not been definitively decided. It is still a concept under consideration, and its potential and feasibility have yet to be fully explored and confirmed. This ongoing discussion reflects the dynamic nature of academic and professional exploration, where ideas evolve and are refined over time, in alignment with both academic objectives and the practical needs of the industry.
 
 \section{Learning Goals}
-In the following i will list each Learning Goal and evaluate if it was reached in the course of the internship
+In the following I will list each Learning Goal and evaluate if it was reached in the course of the internship
 
 \begin{description}[]
     \item[Enhancement of proficiency in GIS software and infrastructure:]  This learning goal has been fully achieved. I have deepened my expertise in desktop GIS software, such as ArcGIS Pro, as well as on the server side with ArcGIS Server infrastructure. Additionally, I have gained experience in developing web GIS applications using the ArcGIS JS SDK and map.apps. I have also worked with various dataset types, including PEI datasets, file geodatabases, and NetCDF. 
@@ -280,11 +280,11 @@ In the following i will list each Learning Goal and evaluate if it was reached i
     \item[Familiarization with project management and participation in large-scale projects:] Not archived. I did not work on any large-scale projects during my internship.
     \item[Development of collaborative skills for team environments:] Archived. I have had some experience of working with real teams. Especially in the GD NRW project.
     \item[Improvement in effective communication strategies:] Not archived, as i did not work enough in teams.  
-    \item[Skill development in recognizing correlations between various topics:] As I only visited a few themes, I was not able to make any real connections.
+    \item[Skill development in recognizing correlations between various topics:] As I only visited a few projects, I was not able to make any real connections.
     \item[Improvement in strategizing for problem-solving:] Archived. As I encountered many different problems, I learned new strategies to solve them.
 \end{description}
 
-I achieved four out of nine goals, which I still consider a success. The goals that were not met were too abstract and unrealistic. Therefore, one of the most important things I learned from the internship is what to expect and what not to expect when working in the industry.
+I achieved four out of nine goals, which I still consider a success. The goals that were not met were too abstract unrealistic, or not fitting for con terra. Therefore, one of the most important things I learned from the internship is what to expect and what not to expect when working in the industry.
 
 \section{Summary and conclusions}
 
