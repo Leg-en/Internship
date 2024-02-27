@@ -1,12 +1,14 @@
 \documentclass[11pt, titlepage, a4paper]{article}
 
+
+\usepackage[hidelinks]{hyperref} % For clickable links
 \usepackage{graphicx} % For images
 \graphicspath{ {./graphics/} }
 \usepackage[acronym]{glossaries}
 \usepackage[automake]{glossaries-extra}
 \usepackage[utf8]{inputenc} % For special characters
 \usepackage[english]{babel} % For language-specific hyphenation patterns
-\usepackage[hidelinks]{hyperref} % For clickable links
+
 \usepackage{enumitem}
 \usepackage[]{datetime2}
 \usepackage[a4paper, total={16.0cm, 25cm}]{geometry}
@@ -82,6 +84,7 @@
 \newacronym{tls}{TLS}{Transport Layer Security}
 \newacronym{ogc}{OGC}{Open Geospatial Consortium}
 \newacronym{s3}{S3}{Simple Storage Service}
+\newacronym{ipcc}{IPCC}{Intergovernmental Panel on Climate Change}
 \begin{document}
 
 
@@ -126,15 +129,15 @@ As a Master’s student specializing in Geoinformatics and Spatial Data Science,
 My internship at con terra was in Münster. It started on 01.09.2023 and ended on 31.03.2024. I was part of the Open Data and Copernicus team and the SDI \& E-Government department. I worked an average of 32 hours per week, partly in the office and partly remotely.
 
 \section{Internship Content}
-The projects i worked on in my internship differ from the ones specified in the Learning Agreement. The only project from the learning agreement that i acutally participated in were the \gls{gd} \gls{nrw} Meta-\gls{dam} Project. My participation in the Open Pioneer project were deemed infeasible. Therefore i participated in the \gls {dz} project and in the Geosphere project. 
+The projects i worked on in my internship differ from the ones specified in the Learning Agreement. The only project from the learning agreement that i actually participated in were the \gls{gd} \gls{nrw} Meta-\gls{dam} Project. My participation in the Open Pioneer project were deemed infeasible. Therefore, I participated in the \gls {dz} project and in the Geosphere project. 
 %My internship was clearly structured. This took the form three different Projects, each in their own timeframe and with their own requirements.
 
 \subsection{\glsxtrfull{gd} \gls{nrw} -  Meta-\glsxtrfull{dam} System }
 \subsubsection{Introduction}
-The  \gls {gd} \gls {nrw}  is the central geoscientific institution of \gls {nrw}. Their  core tasks  tasks are geoscientific mapping and the provision of geodata for administration, business and science \cite{GeoDatenFurNordrheinWestfalen2024}. 
-They have a wide range of assets, which are currently managed by a software called cumulus. As the used software is outdated, it does not meet the the current requirements.
+The  \gls {gd} \gls {nrw}  is the central geoscientific institution of \gls {nrw}. Their  core tasks are geoscientific mapping and the provision of geodata for administration, business and science \cite{GeoDatenFurNordrheinWestfalen2024}. 
+They have a wide range of assets, which are currently managed by a software called cumulus. As the used software is outdated, it does not meet the current requirements.
 Primarily they  are required to make all data, where it is legally possible, open data \cite{GesetzZurForderung2017}.
-Additionally the GeolDG also requires the \gls{gd} to make their accessible by the public \cite{GesetzZurStaatlichen2020}.
+Additionally, the GeolDG also requires the \gls{gd} to make their accessible by the public \cite{GesetzZurStaatlichen2020}.
 
 Therefore, the main goal of this project was to conceptualize a new system and to implement a prototype of it.
 \subsubsection{As-is Status}
@@ -145,7 +148,7 @@ They also use \gls{exif} and \gls{iptc} metadata information for images, which i
 % \subsubsection{The new system}
 % The new system exists maninly as a concept. But a few features were already implemented as a prototype for the \gls{gd} to test them.
 \subsubsection{Requirements}
-The new system should eliminate the inadequacies of the old system. Therefore a list of Requirements were collected. In the following there is a subset example of the main functional requirements:
+The new system should eliminate the inadequacies of the old system. Therefore, a list of Requirements were collected. In the following there is a subset example of the main functional requirements:
 \begin{itemize}
     \item Keeping the Internal metadata attributes (and adding new ones)
     \item Connection to the GEOportal.NRW
@@ -165,7 +168,7 @@ In addition, there are quality requirements that focus on data integrity and the
 A final requirement is that the system needs to be split. It should mainly run on the servers of  \gls{gd} \gls {nrw}. But  non-sensitive data should be hosted also publicly by IT.NRW. 
 
 \subsubsection{Technical Aspects}
-To meet these Requirements the smart.finder SDI was choosen as base software. As it can not meet all requirements standalone (for example it can only work with \gls{iso} 19115/\gls{iso} 19119, INPSIRE \cite{temporarymiwp2021-2024sub-group2.3.1TechnicalGuidanceImplementation} or GDI DE Metadata \cite{gdi-dearbeitskreismetadatenArchitekturGeodateninfrastrukturDeutschlandKonventionen}) new software components were conceptualized and implemented to meet the designated requirements.
+To meet these Requirements the smart.finder SDI was chosen as base software. As it can not meet all requirements standalone (for example it can only work with \gls{iso} 19115/\gls{iso} 19119, INPSIRE \cite{temporarymiwp2021-2024sub-group2.3.1TechnicalGuidanceImplementation} or GDI DE Metadata \cite{gdi-dearbeitskreismetadatenArchitekturGeodateninfrastrukturDeutschlandKonventionen}) new software components were conceptualized and implemented to meet the designated requirements.
 
 
 
@@ -174,18 +177,18 @@ In the following each software component will be shortly described:
 
 The main part of the System is the smart.finder SDI, which is called gd-nrw-dam-smartfinder-sdi. It consists of several components which are listed below:
 \begin{description}
-    \item[smartfinder-search]: This component is responsible for managing data. It operates on an integrated Apache Solr instance to enable the search and filter capabilites of the smartfinder. It also enables features such as full-text search, geo-searches, and filtering for specific attribute values.
+    \item[smartfinder-search]: This component is responsible for managing data. It operates on an integrated Apache Solr instance to enable the search and filter capabilities of the smartfinder. It also enables features such as full-text search, geo-searches, and filtering for specific attribute values.
     \item[smartfinder-editor]: This component represents the smart.editor, which enables the editing of Metadata in compliance with \gls{iso} 19115/\gls{iso} 19119, INSPIRE, or GDI DE.
     \item[smartfinder-csw]: This component serves as the \gls{csw} interface, enabling the dissemination of data to other portals, including the GEOportal.NRW.
     \item[smartfinder-sdi]: This component constitutes the user interface for searching and accessing datasets.
     \item[gd-nrw-dam-portal]: This component is an adapted version of the smartfinder-sdi component.
           
 \end{description}
-Additional there are completely new Software Components that needs to be solely for the \gls{gd} developed. These software components are listet below: 
+Additional there are completely new Software Components that needs to be solely for the \gls{gd} developed. These software components are listed below: 
 \begin{description}      
-    \item[gd-nrw-dam]: This component offers \gls{crud} functionality for metadata, including a frontend for Multi-Edit Metadata and Editing Single Metadata.
-    \item[gd-nrw-datastore]: This component is responsible for the raw data access. It has the ability to function with both the raw file system and S3 Storages. It offers fundamental \gls{crud} capabilities for the data.
-    \item[gd-nrw-api]: This component stores the metadata and manages the communication between the newly developed software components and the smartfinder-sdi.
+    \item[gd-nrw-dam-portal]: This component offers \gls{crud} functionality for metadata, including a frontend for Multi-Edit Metadata and Editing Single Metadata.
+    \item[gd-nrw-datastore]: This component is responsible for the raw data access. It has the ability to function with both the raw file system and \gls{s3}. It offers fundamental \gls{crud} capabilities for the data.
+    \item[gd-nrw-dam]: This component stores the metadata and manages the communication between the newly developed software components and the smartfinder-sdi.
 \end{description}
 
 
@@ -196,7 +199,7 @@ As the \gls{gd}  wanted to keept its own Attributes, an additional database was 
 
 
 
- To achieve the goal of splitting the data between two hosts, there are now two datastores that can be switched in place. This is necessary to allow authorised users to access sensitive data. The public datastore from IT.NRW gets only the non-sensitive data.
+ To achieve the goal of splitting the data between two hosts, there are now two data stores that can be switched in place. This is necessary to allow authorized users to access sensitive data. The public datastore from IT.NRW gets only the non-sensitive data.
 
 \subsubsection{My Participation}
 My involvement in this project focused on the development of new software components for a prototype. Furthermore, I made modifications to the smartfinder-sdi.
@@ -204,7 +207,7 @@ My involvement in this project focused on the development of new software compon
 
 
 The initial prototype commenced as a basic project employing FastAPI and Python. It also integrated an added PostgreSQL database. The first objective was to construct a database schema tailored to our requirements. The final configuration for the prototype is depicted in Graphic \ref{fig:db}. We opted for a flat structure with no N-M relationships.
-Also, I designed the frontend. Our technological stack for the frontend consisted of Vue and Vuetify, with the inclusion of a Vite development server. The primary Vue components that I developed include Single Editing for modifying a single Metadataset and Multi-Edit for modifying multiple Metadatasets. To create Single Editing, I used a mockup as a template to base my development on. I designed and conceptualised Multi-Editing myself, as demonstrated in figure \ref{fig:multiedit}.
+Also, I designed the frontend. Our technological stack for the frontend consisted of Vue and Vuetify, with the inclusion of a Vite development server. The primary Vue components that I developed include Single Editing for modifying a single Metadataset and Multi-Edit for modifying multiple Metadatasets. To create Single Editing, I used a mockup as a template to base my development on. I designed and conceptualized Multi-Editing myself, as demonstrated in figure \ref{fig:multiedit}.
 
 Later on in the project, I developed an additional front-end for a shopping cart, which serves as an intermediary website between the Smartfinder and the new components. Moreover, I developed a front-end for the administrator to configure various attributes for editing.
 
@@ -216,8 +219,8 @@ Subsequently, the decision was made to switch from Python and FastAPI to Spring 
 
 Following that, I developed an Azure build pipeline for automated deployment on our test system.  To achieve this, I restructured the project into two separate components: the frontend and the backend, each with its own pom.xml file. Additionally, there is a pom file for the entire project, enabling Maven to build the project with the complete frontend included in the backend for the pipeline. The tomcat-maven-plugin was then used for deployment to our test machine.
 
-Later, I developed the Sfsdi API component, which serves as a predecessor to the gd-nrw API. It is a Spring Boot application that accesses the Smartfinder-Search module and alters its Solr database. During development, I extended the smartfinder-search Solr core to handle additional data types beyond \gls{iso}. Moreover, I enhanced the frontend of the smartfinder-sdi, effectively creating the gd-nrw-dam-portal component.
-Also i created an automated \gls{iso} XML generation.
+Later, I developed the Sfsdi-API component, which serves as a predecessor to the gd-nrw API. It is a Spring Boot application that accesses the Smartfinder-Search module and alters its Solr database. During development, I extended the smartfinder-search Solr core to handle additional data types beyond \gls{iso}. Moreover, I enhanced the frontend of the smartfinder-sdi, effectively creating the gd-nrw-dam-portal component.
+Also, I created an automated \gls{iso} XML generation.
 
 I have also developed several complex features, including thumbnail generation for images and \gls{pdf}, on-the-fly zipped group downloads, \gls{iptc}/\gls{exif} read and write capabilities, and the deployment of a Redis Instance for fast and secure storage. These addition will facilitate the transition from the smartfinder to the new components. Also i deployed an Nginx instance as a reverse proxy for basic authentication, with \gls{tls} support.
 
@@ -225,7 +228,7 @@ Finally, I participated multiple estimation workshops to estimate the complexity
 
 \subsubsection{Project Reflection}
 The project was a small-scale project with about 4 people working on it, myself being the only person working on the implementation on the prototype. I had one team member who provided support, but their role was more that of a software architect than a developer. 
-We held meetings twice a week to discuss the project's progress. In addition to development, we heavily utilised a Jira board with tickets to track progress. I was not involved in the project's conception.
+We held meetings twice a week to discuss the project's progress. In addition to development, we heavily utilized a Jira board with tickets to track progress. I was not involved in the project's conception.
 The estimation workshops took place a few months after my participation in the project, during which I was included in the estimation process.
 
 During this project, I acquired and refreshed various skills. I relearned Java and gained knowledge of the Spring Framework. Additionally, I deepened my understanding of recent web technologies, including Vue. I also learned about Nginx and \gls{tls} basics.
@@ -251,7 +254,7 @@ This project, primarily a consultancy initiative aimed at developing a prototype
 \begin{description}[]
     \item[Three-Dimensional Capability]: Reflecting the three-dimensional nature of real-world challenges, the solution must be capable of visualizing 3D data and performing basic general-purpose operations, such as measurements, in a 3D environment.
     \item[Scenario-Optimized Geodata]: The digital twin should tailor its data visualization and accessibility for different emergency scenarios, acknowledging that not all datasets are suitable for every scenario. Primary scenario groups include Fire, Earth, Water, and Air.
-    \item[Compliance with \gls{bhkg}]: The prototype should be developed with the objective of planning, monitoring, and follow-up in accordance with \gls{bhkg} standards.
+    \item[Compliance with \glsxtrshort{bhkg}]: The prototype should be developed with the objective of planning, monitoring, and follow-up in accordance with \gls{bhkg} standards.
     \item[Target Group - Authorities and Security Organizations]: The prototype should be user-friendly for its target audience, which includes authorities and organizations involved in security tasks, without assuming extensive geospatial knowledge.
     \item[Cloud-Based Solution]: The entire application should be cloud-based, ensuring accessibility and scalability.
     \item[Fine-Grained Access Control]: Given the potential inclusion of sensitive data (e.g., \gls{kritis} data), the application must feature a robust access control system, allowing users to view only data relevant to their roles and responsibilities.
@@ -267,7 +270,7 @@ However, it is important to note that not all these requirements will be fully m
 The project used as a base map.apps and was in an agile manner developed. From the requirements just a few were implemented.
 
 \subsubsection{My Participation}
-I joined the project in its final stages, focusing on a limited but significant set of tasks. My primary responsibility involved integrating data provided by the fire department. I worked with a \\gls{pei} Dataset, which consisted of radio messages containing location data, such as Short \gls{pdu}, Long \gls{pdu}, or STATUS. An example of a short \gls{pdu} is shown in Figure \ref{fig:pei}. The first line of each message includes metadata, like the transmitting and receiving parties, and the message type. The HEX-Code following this metadata can be converted to binary and decoded \cite{etsiETSITS1002007}. I developed a Python script to automate this process, outputting the data as an ESRI feature layer.
+I joined the project in its final stages, focusing on a limited but significant set of tasks. My primary responsibility involved integrating data provided by the fire department. I worked with a \gls{pei} Dataset, which consisted of radio messages containing location data, such as Short \gls{pdu}, Long \gls{pdu}, or STATUS. An example of a short \gls{pdu} is shown in Figure \ref{fig:pei}. The first line of each message includes metadata, like the transmitting and receiving parties, and the message type. The HEX-Code following this metadata can be converted to binary and decoded \cite{etsiETSITS1002007}. I developed a Python script to automate this process, outputting the data as an ESRI feature layer.
 
 Additionally, I developed a new map control tool, enhancing user interaction with map features such as position, rotation, tilt, and zoom. This tool allows users to intuitively adjust the map's rotation by dragging the north arrow around a circle, as illustrated in Figure \ref{fig:mapcontrol}.
 
@@ -279,9 +282,9 @@ My final task for this phase was to assess the compatibility of Esri's ArcGIS In
 In the new phase, I mainly developed a 2D digital twin. To achieve this, I altered the 2D-3D switch and created a new bundle. The bundle checks system requirements to indicate if the user's device is 3D capable. I also updated the table of contents to include a hint that some layers are exclusively 3D. 
 Additionally, I configured and extended the map.apps intro functionality.
 \subsubsection{Project Reflection}
-The project was organized through weekly meetings and a Jira board with tickets. As I joined the project at a later stage, I did not participate as much. At the start of the project, I received no proper onboarding and worked on tickets without context or understanding. I was onboarded for the project after the finalization of the first project phase. Following a month of work on the Geosphere Project, I was reassigned to work on some prototype features for the digital twin. However, neither the Jira board nor the weekly meetings were utilized effectively this time.
+The project was organized through weekly meetings and a Jira board with tickets. As I joined the project at a later stage, I did not participate as much. At the start of the project, I received no proper onboarding and worked on tickets without context or understanding. I was onboarded for the project after the finalization of the first project phase. Following a month of work on the Geosphere Project, I was reassigned to work on some prototype features for the digital twin. However, neither the Jira board nor the weekly meetings were utilised effectively this time.
 
-At the beginning of this project, I focused on data analysis and deepened my knowledge of PEI Datasets. During this course, I gained a better understanding of HEX and Binary Representation of data, as well as improving my Python skills.  Additionally, I gained a lot of knowledge about \gls{css}, which is heavily utilized in the control tool.%Additionally i learned a lot of map.apps specific things and how the bundle system in the background works. 
+At the beginning of this project, I focused on data analysis and deepened my knowledge of PEI Datasets. During this course, I gained a better understanding of HEX and Binary Representation of data, as well as improving my Python skills.  Additionally, I gained a lot of knowledge about \gls{css}, which is heavily utilised in the control tool.%Additionally i learned a lot of map.apps specific things and how the bundle system in the background works. 
 
 \subsection{Geosphere}
 \subsubsection{Introduction}
@@ -301,11 +304,11 @@ The median data was visualized in map.apps and a user interface was developed to
 \subsubsection{Project Reflection}
 As this was not a real project but an acquisition, I worked alone without any structure or organization.  I was simply given the data, a brief description of the tech stack I should use, and an example of the goal, which was the Climate Atlas of Canada \cite{ClimateAtlasCanada}. Later in the project, I had a few meetings with my team lead to discuss what still needed to be done and what was finished. The project ended unexpectedly for me as I was reassigned to work again at the \gls{dz}. 
 
-Firstly, I was introduced to raw climate data, including the IPCC Climate models and the netcdf representation. However, I gained valuable knowledge from this experience. This was my first time working with such data, and as a result, I gained a deeper understanding of netcdfs, including their structure and functionality. Furthermore, I acquired a better understanding of map.apps and the bundle system, which was necessary for plotting the timeseries data.
+Firstly, I was introduced to raw climate data, including the \gls{ipcc} Climate models and the \gls{netcdf} representation. However, I gained valuable knowledge from this experience. This was my first time working with such data, and as a result, I gained a deeper understanding of \gls{netcdf}, including their structure and functionality. Furthermore, I acquired a better understanding of map.apps and the bundle system, which was necessary for plotting the time series data.
 \section{Reflection}
 
  \subsection{Communication Aspects}
-In the following i will describe a few Communication Aspsects which were consistent through the whole internship.
+In the following i will describe a few Communication Aspects which were consistent through the whole internship.
  \begin{description}[]
      \item[Supervisor Communication:] I had bi-weekly meetings with my supervisor. These were scheduled meetings that were 30 minutes long.
      \item[Teamwork:] I was part of the team, but because teams do not work together on a project, I did not really get to know each team member. Instead, I had regular contact with individuals who worked on the same project. 
@@ -351,7 +354,7 @@ Currently, the idea of focusing a Master's thesis on this topic is in its early 
 \begin{appendices}
     \section{Graphics}
     \begin{figure}[H]
-        \caption{Use case diagram, which visualized some functional requirements}
+        \caption{Use case diagram, which visualizes some functional requirements}
         \label{fig:usecase}
         \includegraphics[width=16cm]{usecase_diagramm.png}
         \centering
