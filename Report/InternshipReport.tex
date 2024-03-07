@@ -87,6 +87,60 @@
 \newacronym{ogc}{OGC}{Open Geospatial Consortium}
 \newacronym{s3}{S3}{Simple Storage Service}
 \newacronym{ipcc}{IPCC}{Intergovernmental Panel on Climate Change}
+\newacronym{gdide}{GDI-DE}{Geodateninfrastuktur Deutschland}
+\newacronym{inspire}{INSPIRE}{Infrastructure for Spatial Information in the European Community}
+
+\newglossaryentry{fastapi}
+{
+        name=FastAPI,
+        description={FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.8+ based on standard Python type hints.}
+}
+
+\newglossaryentry{postgres}
+{
+        name=PostgreSQL,
+        description={PostgreSQL is a powerful, open source object-relational database system with over 35 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.}
+}
+\newglossaryentry{vue}
+{
+        name=Vue,
+        description={An approachable, performant and versatile framework for building web user interfaces.}
+}
+\newglossaryentry{vuetify}
+{
+        name=Vuetify,
+        description={Vuetify is a no design skills required Open Source UI Library with beautifully handcrafted Vue Components. }
+}
+\newglossaryentry{vite}
+{
+        name=Vite,
+        description={Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects.}
+}
+\newglossaryentry{springboot}
+{
+        name=Spring Boot,
+        description={Spring Boot is an open-source Java-based framework used for creating standalone, production-grade Spring-based applications with minimal effort.}
+}
+\newglossaryentry{azure}
+{
+        name=Microsoft Azure,
+        description={Microsoft Azure, often referred to as Azure is a cloud computing platform run by Microsoft.}
+}
+\newglossaryentry{maven}
+{
+        name=Apache Maven,
+        description={Maven is a build automation tool used primarily for Java projects. }
+}
+\newglossaryentry{redis}
+{
+        name=Redis,
+        description={Redis is an open source (BSD licensed), in-memory data structure store used as a database, cache, message broker, and streaming engine. }
+}
+\newglossaryentry{nginx}
+{
+        name=Nginx,
+        description={NGINX is a free, open-source, high-performance HTTP server and reverse proxy, as well as an IMAP/POP3 proxy server.}
+}
 \begin{document}
 
 
@@ -103,13 +157,13 @@
 
 con terra is a German company specializing in Geo-IT solutions. Founded in 1993, it is headquartered in Münster, Germany. The company's primary focus is on integrating intelligent Geo-IT solutions into the IT infrastructures of various customers, both in the private sector and in public administration agencies. This integration enables efficient, cost-effective, and transparent utilization of geoinformation, thereby enhancing the efficiency of company processes.
 
-A key aspect of con terra's operations is its partnership with Esri Inc., through which it backs the ArcGIS technology. The company enhances this technology with additional products and technologies, such as \gls{fme}, and the ERP platform SAP HANA, to meet specific needs. Their cooperation with universities and participation in research and development projects, standardization procedures, and committees of organizations like \gls{iso}, GDI-DE, \gls{ogc}, and INSPIRE, positions them to both influence and quickly adapt to market trends.
+A key aspect of con terra's operations is its partnership with Esri Inc., through which it backs the ArcGIS technology. The company enhances this technology with additional products and technologies, such as \gls{fme}, and the ERP platform SAP HANA, to meet specific needs. Their cooperation with universities and participation in research and development projects, standardization procedures, and committees of organizations like \gls{iso}, \gls{gdide}, \gls{ogc}, and \gls{inspire}, positions them to both influence and quickly adapt to market trends.
 
 con terra's own products are primarily map.apps and smart.finder. Each with several add-ons and configurations, for example smart.finder - SDI or map.apps ETL. As an alternative, they are also working on an open source framework called Open Pioneer.
 
 con terra has expertise in multiple sectors, including insurance, natural and environmental resources, telecommunications, trade, SDI and e-government, and real estate. Customer are for example TenneT TSO,  \gls {gd} \gls{nrw}, IT.NRW or the Bundesanstalt für Geowissenschaften und Rohstoffe  (BGR).
 
-The company has a team of over 220 professionals from diverse fields, including computer science, geoscience, mathematics, physics, engineering, and ecology. con terra prioritises a corporate culture based on values such as responsibility, humanity, individuality, and professionalism, which are integral to its business operations and customer relationships.
+The company has a team of over 220 professionals from diverse fields, including computer science, geoscience, mathematics, physics, engineering, and ecology. %con terra prioritises a corporate culture based on values such as responsibility, humanity, individuality, and professionalism, which are integral to its business operations and customer relationships.
 
 %The con terra also has a lot of benefits for its Employees, such as modern offices, a focus on Work-Life Balance with Flexible working hours, providing a company car or a jobbike. They also have huge focus on social events for example: Teamevents, con terra afternoons, Summer festival/Christmas party and a boathouse on the werse which can be rented
 
@@ -130,7 +184,7 @@ As a Master's student in Geoinformatics and Spatial Data Science, my internship 
 My internship at con terra was in Münster. It started on 01.09.2023 and ended on 31.03.2024. I was part of the Open Data and Copernicus team and the SDI \& E-Government department. I worked an average of 32 hours per week, partly in the office and partly remotely.
 
 \section{Internship Content}
-The projects i worked on in my internship differ from the ones specified in the Learning Agreement. The only project from the learning agreement that i actually participated in were the \gls{gd} \gls{nrw} Meta-\gls{dam} Portal Project. My participation in the Open Pioneer project were deemed infeasible. Therefore, I participated in the \gls {dz} project and in the Geosphere project.
+The projects i worked on in my internship differ from the ones specified in the Learning Agreement. The only project from the learning agreement that i actually participated in were the \gls{gd} \gls{nrw} Meta-\gls{dam} Portal Project. My participation in the Open Pioneer \cite{conterraOpenPioneerTrails2024} project were deemed infeasible. Therefore, I participated in the \gls {dz} project and in the Geosphere project.
 %My internship was clearly structured. This took the form three different Projects, each in their own timeframe and with their own requirements.
 
 \subsection{\glsxtrfull{gd} \gls{nrw} -  Meta-\glsxtrfull{dam} Portal }
@@ -170,7 +224,7 @@ In addition, there are quality requirements that focus on data integrity and the
 A final requirement is that the system needs to be split. It should mainly run on the servers of  \gls{gd} \gls {nrw}. But  non-sensitive data should be hosted also publicly by IT.NRW.
 
 \subsubsection{Technical Aspects}
-To meet these Requirements the smart.finder SDI was chosen as base software. As it can not meet all requirements standalone (for example it can only work with \gls{iso} 19115/\gls{iso} 19119, INPSIRE \cite{temporarymiwp2021-2024sub-group2.3.1TechnicalGuidanceImplementation} or GDI DE Metadata \cite{gdi-dearbeitskreismetadatenArchitekturGeodateninfrastrukturDeutschlandKonventionen}) new software components were conceptualized and implemented to meet the designated requirements \cite{conterraSmartFinderSDI}.
+To meet these requirements the smart.finder SDI was chosen as base software. As it can not meet all requirements standalone (for example it can only work with \gls{iso} 19115/\gls{iso} 19119, INPSIRE \cite{temporarymiwp2021-2024sub-group2.3.1TechnicalGuidanceImplementation} or \gls{gdide} Metadata \cite{gdi-dearbeitskreismetadatenArchitekturGeodateninfrastrukturDeutschlandKonventionen}) new software components were conceptualized and implemented to meet the designated requirements \cite{conterraSmartFinderSDI}.
 
 
 
@@ -180,7 +234,7 @@ In the following each software component will be shortly described:
 The main part of the System is the smart.finder SDI, which is called gd-nrw-dam-smartfinder-sdi. It consists of several components which are listed below:
 \begin{description}
     \item[smartfinder-search]: This component is responsible for managing data. It operates on an integrated Apache Solr instance to enable the search and filter capabilities of the smartfinder. It also enables features such as full-text search, geo-searches, and filtering for specific attribute values.
-    \item[smartfinder-editor]: This component represents the smart.editor, which enables the editing of Metadata in compliance with \gls{iso} 19115/\gls{iso} 19119, INSPIRE, or GDI DE.
+    \item[smartfinder-editor]: This component represents the smart.editor, which enables the editing of Metadata in compliance with \gls{iso} 19115/\gls{iso} 19119, \gls{inspire}, or \gls{gdide}.
     \item[smartfinder-csw]: This component serves as the \gls{csw} interface, enabling the dissemination of data to other portals, including the GEOportal.NRW.
     \item[smartfinder-sdi]: This component constitutes the user interface for searching and accessing datasets.
           %\item[gd-nrw-dam-portal]: This component is an adapted version of the smartfinder-sdi component.
@@ -189,7 +243,7 @@ The main part of the System is the smart.finder SDI, which is called gd-nrw-dam-
 %Additional there are completely new Software Components that needs to be solely for the \gls{gd} developed. These software components are listed below: 
 The final system then consists of the following components:
 \begin{description}
-    \item[gd-nrw-dam-portal]: This component is the altered Version of the smartfinder-sdi for \gls{gd} interns.
+    \item[gd-nrw-dam-portal]: This component is the altered version of the smartfinder-sdi for \gls{gd} interns.
     \item[gd-nrw-datastore]: This component is responsible for the raw data access. It has the ability to function with both the raw file system and \gls{s3}. It offers fundamental \gls{crud} capabilities for the data.
     \item[gd-nrw-dam]:  This component offers \gls{crud} functionality for metadata, including a frontend for Multi-Edit Metadata and Editing Single Metadata. %This component stores the metadata and manages the communication between the newly developed software components and the smartfinder-sdi. 
     \item[nrw-dam-portal]: This component is the public portal hosted by IT.NRW.
@@ -209,24 +263,24 @@ My involvement in this project focused on the development of new software compon
 
 
 
-The initial prototype commenced as a basic project employing FastAPI and Python. It also integrated an added PostgreSQL database. The first objective was to construct a database schema tailored to our requirements. The final database configuration for the prototype is depicted in Graphic \ref{fig:db}. We opted for a flat structure with no N-M relationships.
-I also designed the frontend. Our technological stack for the frontend consisted of Vue and Vuetify, with the inclusion of a Vite development server. The primary Vue components that I developed include Single Editing for modifying a single Metadataset and Multi-Edit for modifying multiple Metadatasets. To create Single Editing, I used a mockup as a template to base my development on. I designed and conceptualized Multi-Editing myself, as demonstrated in figure \ref{fig:multiedit}.
+The initial prototype commenced as a basic project employing \Gls{fastapi} and Python. It also integrated an added \Gls{postgres} database. The first objective was to construct a database schema tailored to our requirements. The final database configuration for the prototype is depicted in Graphic \ref{fig:db}. We opted for a flat structure with no N-M relationships.
+I also designed the frontend. Our technological stack for the frontend consisted of \Gls{vue} and \Gls{vuetify}, with the inclusion of a \Gls{vite} development server. The primary Vue components that I developed include Single Editing for modifying a single Metadataset and Multi-Edit for modifying multiple Metadatasets. To create Single Editing, I used a mockup as a template to base my development on. I designed and conceptualized Multi-Editing myself, as demonstrated in figure \ref{fig:multiedit}.
 
 Later on in the project, I developed an additional front-end for a shopping cart, which serves as an intermediary website between the smart.finder SDI and the new components. Moreover, I developed a front-end for the administrator to configure various attributes for editing.
 
 
 
 
-Subsequently, the decision was made to switch from Python and FastAPI to Spring Boot and Java. As a result, I started working on the gd-nrw-dam module, which includes the gd-nrw-datastore module as a prototype. First, I implemented the necessary Spring Data classes and interfaces, and then proceeded to create the basic endpoints for \gls{crud} operations to restore functionality to my frontend. In addition, the project includes the ability to host the front-end on the Spring Boot server. A Spring Boot controller was developed specifically to maintain the functionality of the Vue router component, which controls page routing. The code for this can be found in
-\ref{fig:vue}. It is important to note that any requests that match the applied regex pattern will be directed to the Vue Router.
+Subsequently, the decision was made to switch from Python and FastAPI to \Gls{springboot} and Java. As a result, I started working on the gd-nrw-dam module, which includes the gd-nrw-datastore module as a prototype. First, I implemented the necessary Spring Data classes and interfaces, and then proceeded to create the basic endpoints for \gls{crud} operations to restore functionality to my frontend. In addition, the project includes the ability to host the front-end on the \Gls{springboot} server. A \Gls{springboot} controller was developed specifically to maintain the functionality of the Vue router component, which controls page routing. The code for this can be found in
+\ref{fig:vue}. It is important to note that all requests matching the applied regex pattern will be redirected to the Vue router. A better option would be to have the entire front end hosted on the \Gls{nginx} web server.
 
-Following that, I developed an Azure build pipeline for automated deployment on our test system.  To achieve this, I restructured the project into two separate components: the frontend and the backend, each as its own maven project. %Additionally, there is a pom file for the entire project, enabling Maven to build the project with the complete frontend included in the backend for the pipeline. 
-Both components are then references as dependency in a third maven project, enabling Maven to build the entire project with the complete frontend included in the backend for the pipeline. The tomcat-maven-plugin was then used for deployment to our test machine.
+Following that, I developed an \Gls{azure} build pipeline for automated deployment on our test system.  To achieve this, I restructured the project into two separate components: the frontend and the backend, each as its own \Gls{maven} project. %Additionally, there is a pom file for the entire project, enabling Maven to build the project with the complete frontend included in the backend for the pipeline. 
+Both components are then references as dependency in a third \Gls{maven} project, enabling \Gls{maven} to build the entire project with the complete frontend included in the backend for the pipeline. The tomcat-maven-plugin was then used for automated deployment to our test machine.
 
-Later, I developed the Sfsdi-API component. Its a additional component for the prototype. In the final project it will be included in the gd-nrw-dam-portal. It is a Spring Boot application that accesses the Smartfinder-Search module and alters its Solr database. During development, I extended the smartfinder-search Solr core to handle additional data types beyond \gls{iso}. Moreover, I enhanced the frontend of the smartfinder-sdi, effectively creating the gd-nrw-dam-portal component.
+Later, I developed the Sfsdi-API component. Its a additional component for the prototype. In the final project it will be included in the gd-nrw-dam-portal. It is a \Gls{springboot} application that accesses the smartfinder-search module and alters its Solr database. During development, I extended the smartfinder-search Solr core to handle additional data types beyond \gls{iso}. Moreover, I enhanced the frontend of the smartfinder-sdi, effectively creating the gd-nrw-dam-portal component.
 Also, I created an automated \gls{iso} XML generation.
 
-I have also developed several complex features, including thumbnail generation for images and \gls{pdf}, on-the-fly zipped group downloads, \gls{iptc}/\gls{exif} read and write capabilities, and the deployment of a Redis Instance for fast and secure storage. These addition will facilitate the transition from the smartfinder to the new components. Also i deployed an Nginx instance as a reverse proxy for basic authentication, with \gls{tls} support.
+I have also developed several complex features, including thumbnail generation for images and \gls{pdf}, on-the-fly zipped group downloads, \gls{iptc}/\gls{exif} read and write capabilities, and the deployment of a \Gls{redis} Instance for fast and secure storage. These addition will facilitate the transition from the smartfinder to the new components. Also i deployed an \Gls{nginx} instance as a reverse proxy for basic authentication, with \gls{tls} support.
 
 Finally, I participated multiple estimation workshops to estimate the complexity for the complete project realization.
 
@@ -235,7 +289,7 @@ The project was a small-scale project with about 4 people working on it, myself 
 We held meetings twice a week to discuss the project's progress. In addition to development, we heavily utilized a Jira board with tickets to track progress. I was not involved in the project's conception.
 The estimation workshops took place a few months after my participation in the project, during which I was included in the estimation process.
 
-During this project, I acquired and refreshed various skills. I relearned Java and gained knowledge of the Spring Framework. Additionally, I deepened my understanding of recent web technologies, including JavaScript and  Vue. I also learned about Nginx and \gls{tls} basics.
+During this project, I acquired and refreshed various skills. I relearned Java and gained knowledge of the Spring Framework. Additionally, I deepened my understanding of recent web technologies, including JavaScript and  Vue. I also learned about \Gls{nginx} and \gls{tls} basics.
 The structured project provided me with a support system, allowing me to work effectively with minimal downtime.
 
 It should be noted that throughout the project I had a number of ideas that were not considered feasible or reasonable. As a result, some of the developed software components are a compromise between my opinion and the team's specifications.
@@ -338,9 +392,9 @@ In the following I will list each Learning Goal and evaluate if it was reached i
 
 \begin{description}[]
     \item[Enhancement of proficiency in GIS software and infrastructure:]  This learning goal has been fully achieved. I have deepened my expertise in desktop GIS software, such as ArcGIS Pro, as well as on the server side with ArcGIS Enterprise infrastructure. Additionally, I have gained experience in developing web GIS applications using the ArcGIS JavaScript System Developement Kit and map.apps. I have also worked with various dataset types, including \gls{pei} datasets, file geodatabases, and \gls{netcdf}.
-    \item[Further development of coding and data analysis capabilities:] This learning objective was fully achieved. I have developed several different applications in several languages. For example, I developed a complete Spring Boot app with a SQL database. I also developed some Python components and several JavaScript applications for map.apps. In the context of data analysis I have a lot of experience with netCDF files and ArcGIS and Python.
+    \item[Further development of coding and data analysis capabilities:] This learning objective was fully achieved. I have developed several different applications in several languages. For example, I developed a complete \Gls{springboot} app with a \Gls{postgres} database. I also developed some Python components and several JavaScript applications for map.apps. In the context of data analysis I have a lot of experience with \gls{netcdf} files and ArcGIS and Python.
     \item[Mastery in data management]: Achieved. As my internship had multiple data analysis parts i learned to data management.
-    \item[Acquisition of knowledge in emerging technology standards:] Partially achieved. Even though I did not learn any cutting edge technology, I did learn a lot of for me new technologies and how to use them. For example: Vue(3), Spring Boot, Nginx and Redis.
+    \item[Acquisition of knowledge in emerging technology standards:] Partially achieved. Even though I did not learn any cutting edge technology, I did learn a lot of for me new technologies and how to use them. For example: \Gls{vue}(3), \Gls{springboot}, \Gls{nginx} and \Gls{redis}.
     \item[Familiarization with project management and participation in large-scale projects:] Not achieved. I did not work on any large-scale projects during my internship. This is mainly because my team only works in small scale projects.
     \item[Development of collaborative skills for team environments:] Achieved. I have had some experience of working with real teams. Especially in the \gls{gd}  \gls{nrw}  project.
     \item[Improvement in effective communication strategies:] Achieved. Primarily learnt by observing the existing communication strategy in the con terra
