@@ -141,6 +141,11 @@
         name=Nginx,
         description={NGINX is a free, open-source, high-performance HTTP server and reverse proxy, as well as an IMAP/POP3 proxy server.}
 }
+\newglossaryentry{solr}
+{
+        name=Apache Solr,
+        description={Solr is an open-source enterprise-search platform, written in Java.}
+}
 \begin{document}
 
 
@@ -184,7 +189,8 @@ As a Master's student in Geoinformatics and Spatial Data Science, my internship 
 My internship at con terra was in Münster. It started on 01.09.2023 and ended on 31.03.2024. I was part of the Open Data and Copernicus team and the SDI \& E-Government department. I worked an average of 32 hours per week, partly in the office and partly remotely.
 
 \section{Internship Content}
-The projects i worked on in my internship differ from the ones specified in the Learning Agreement. The only project from the learning agreement that i actually participated in were the \gls{gd} \gls{nrw} Meta-\gls{dam} Portal Project. My participation in the Open Pioneer \cite{conterraOpenPioneerTrails2024} project were deemed infeasible. Therefore, I participated in the \gls {dz} project and in the Geosphere project.
+The projects i worked on in my internship differ from the ones specified in the Learning Agreement. The only project from the learning agreement that i actually participated in were the \gls{gd} \gls{nrw} Meta-\gls{dam} Portal Project. My participation in the Open Pioneer \cite{conterraOpenPioneerTrails2024} project was shifted to the \gls{dz} project as the Open Pioneer Project was not able to provide the necessary technological capabilities (3D visualization with proper administrative CRS support). As an alternative (in order to reach the learning agreement goals) the focus was shifted to the \gls{dz} project.
+%were deemed infeasible. Therefore, I participated in the \gls {dz} project and in the Geosphere project.
 %My internship was clearly structured. This took the form three different Projects, each in their own timeframe and with their own requirements.
 
 \subsection{\glsxtrfull{gd} \gls{nrw} -  Meta-\glsxtrfull{dam} Portal }
@@ -198,8 +204,9 @@ Additionally, the GeolDG also requires the \gls{gd} to make their accessible by 
 Therefore, the main goal of this project was to conceptualize a new system and to implement a prototype of it.
 \subsubsection{As-is Status}
 The \gls{gd} digital archive contains over 450,000 assets. Assets in this context are for example images, \gls{pdf}, \gls{tiff} or videos. However, any digital file can be an asset. The total data volume is over 2 terabytes.
-These assets are currently located on a shared drive and can be managed via the file system. They also use a piece of software called Cumulus. This software primarily manages the metadata associated with the assets. Currently, the \gls{gd} does not use any known metadata schema, but instead uses a list of custom attributes, such as Rating, Special Instructions and Label.
+These assets are currently located on a shared drive and can be managed via the file system. The Cumulus software primarily manages the metadata associated with the assets. Currently, the \gls{gd} does not use any known metadata schema, but instead uses a list of custom attributes, such as Rating, Special Instructions and Label.
 They also use \gls{exif} and \gls{iptc} metadata information for images, which is not managed by Cumulus. Instead, this is done with an additional software component. %Likely Irfanview 
+The main issue with the Cumulus software is that the current local installation is no longer supported. The modern version of Cumulus is a cloud-based solution that cannot be used by the \gls{gd} due to legal restrictions.
 
 % \subsubsection{The new system}
 % The new system exists maninly as a concept. But a few features were already implemented as a prototype for the \gls{gd} to test them.
@@ -233,7 +240,7 @@ In the following each software component will be shortly described:
 
 The main part of the System is the smart.finder SDI, which is called gd-nrw-dam-smartfinder-sdi. It consists of several components which are listed below:
 \begin{description}
-    \item[smartfinder-search]: This component is responsible for managing data. It operates on an integrated Apache Solr instance to enable the search and filter capabilities of the smartfinder. It also enables features such as full-text search, geo-searches, and filtering for specific attribute values.
+    \item[smartfinder-search]: This component is responsible for managing data. It operates on an integrated Apache \Gls{solr} instance to enable the search and filter capabilities of the smartfinder. It also enables features such as full-text search, geo-searches, and filtering for specific attribute values.
     \item[smartfinder-editor]: This component represents the smart.editor, which enables the editing of Metadata in compliance with \gls{iso} 19115/\gls{iso} 19119, \gls{inspire}, or \gls{gdide}.
     \item[smartfinder-csw]: This component serves as the \gls{csw} interface, enabling the dissemination of data to other portals, including the GEOportal.NRW.
     \item[smartfinder-sdi]: This component constitutes the user interface for searching and accessing datasets.
@@ -264,20 +271,20 @@ My involvement in this project focused on the development of new software compon
 
 
 The initial prototype commenced as a basic project employing \Gls{fastapi} and Python. It also integrated an added \Gls{postgres} database. The first objective was to construct a database schema tailored to our requirements. The final database configuration for the prototype is depicted in Graphic \ref{fig:db}. We opted for a flat structure with no N-M relationships.
-I also designed the frontend. Our technological stack for the frontend consisted of \Gls{vue} and \Gls{vuetify}, with the inclusion of a \Gls{vite} development server. The primary Vue components that I developed include Single Editing for modifying a single Metadataset and Multi-Edit for modifying multiple Metadatasets. To create Single Editing, I used a mockup as a template to base my development on. I designed and conceptualized Multi-Editing myself, as demonstrated in figure \ref{fig:multiedit}.
+I also designed the frontend. Our technological stack for the frontend consisted of \Gls{vue} and \Gls{vuetify}, with the inclusion of a \Gls{vite} development server. The primary \Gls{vue} components that I developed include Single Editing for modifying a single Metadataset and Multi-Edit for modifying multiple Metadatasets. To create Single Editing, I used a mockup as a template to base my development on. I designed and conceptualized Multi-Editing myself, as demonstrated in figure \ref{fig:multiedit}.
 
 Later on in the project, I developed an additional front-end for a shopping cart, which serves as an intermediary website between the smart.finder SDI and the new components. Moreover, I developed a front-end for the administrator to configure various attributes for editing.
 
 
 
 
-Subsequently, the decision was made to switch from Python and FastAPI to \Gls{springboot} and Java. As a result, I started working on the gd-nrw-dam module, which includes the gd-nrw-datastore module as a prototype. First, I implemented the necessary Spring Data classes and interfaces, and then proceeded to create the basic endpoints for \gls{crud} operations to restore functionality to my frontend. In addition, the project includes the ability to host the front-end on the \Gls{springboot} server. A \Gls{springboot} controller was developed specifically to maintain the functionality of the Vue router component, which controls page routing. The code for this can be found in
+Subsequently, the decision was made to switch from Python and \Gls{fastapi} to \Gls{springboot} and Java. As a result, I started working on the gd-nrw-dam module, which includes the gd-nrw-datastore module as a prototype. First, I implemented the necessary Spring Data classes and interfaces, and then proceeded to create the basic endpoints for \gls{crud} operations to restore functionality to my frontend. In addition, the project includes the ability to host the front-end on the \Gls{springboot} server. A \Gls{springboot} controller was developed specifically to maintain the functionality of the Vue router component, which controls page routing. The code for this can be found in
 \ref{fig:vue}. It is important to note that all requests matching the applied regex pattern will be redirected to the Vue router. A better option would be to have the entire front end hosted on the \Gls{nginx} web server.
 
 Following that, I developed an \Gls{azure} build pipeline for automated deployment on our test system.  To achieve this, I restructured the project into two separate components: the frontend and the backend, each as its own \Gls{maven} project. %Additionally, there is a pom file for the entire project, enabling Maven to build the project with the complete frontend included in the backend for the pipeline. 
 Both components are then references as dependency in a third \Gls{maven} project, enabling \Gls{maven} to build the entire project with the complete frontend included in the backend for the pipeline. The tomcat-maven-plugin was then used for automated deployment to our test machine.
 
-Later, I developed the Sfsdi-API component. Its a additional component for the prototype. In the final project it will be included in the gd-nrw-dam-portal. It is a \Gls{springboot} application that accesses the smartfinder-search module and alters its Solr database. During development, I extended the smartfinder-search Solr core to handle additional data types beyond \gls{iso}. Moreover, I enhanced the frontend of the smartfinder-sdi, effectively creating the gd-nrw-dam-portal component.
+Later, I developed the Sfsdi-API component. Its a additional component for the prototype. In the final project it will be included in the gd-nrw-dam-portal. It is a \Gls{springboot} application that accesses the smartfinder-search module and alters its \Gls{solr} database. During development, I extended the smartfinder-search \Gls{solr} core to handle additional data types beyond \gls{iso}. Moreover, I enhanced the frontend of the smartfinder-sdi, effectively creating the gd-nrw-dam-portal component.
 Also, I created an automated \gls{iso} XML generation.
 
 I have also developed several complex features, including thumbnail generation for images and \gls{pdf}, on-the-fly zipped group downloads, \gls{iptc}/\gls{exif} read and write capabilities, and the deployment of a \Gls{redis} Instance for fast and secure storage. These addition will facilitate the transition from the smartfinder to the new components. Also i deployed an \Gls{nginx} instance as a reverse proxy for basic authentication, with \gls{tls} support.
@@ -287,12 +294,12 @@ Finally, I participated multiple estimation workshops to estimate the complexity
 \subsubsection{Project Reflection}
 The project was a small-scale project with about 4 people working on it, myself being the only person working on the implementation on the prototype. There was one team member who provided me with support, but their role was more that of a software architect than a developer.
 We held meetings twice a week to discuss the project's progress. In addition to development, we heavily utilized a Jira board with tickets to track progress. I was not involved in the project's conception.
-The estimation workshops took place a few months after my participation in the project, during which I was included in the estimation process.
+For a subsequent realization phase that build upon the prototype estimation workshops took place a few months after my participation in the project, during which I was included in the estimation process.
 
 During this project, I acquired and refreshed various skills. I relearned Java and gained knowledge of the Spring Framework. Additionally, I deepened my understanding of recent web technologies, including JavaScript and  Vue. I also learned about \Gls{nginx} and \gls{tls} basics.
 The structured project provided me with a support system, allowing me to work effectively with minimal downtime.
 
-It should be noted that throughout the project I had a number of ideas that were not considered feasible or reasonable. As a result, some of the developed software components are a compromise between my opinion and the team's specifications.
+It should be noted that throughout the project I had a number of ideas that were not considered feasible or reasonable. Consequently, some of the software components developed were a compromise between the team's specifications, the customer's needs, and my own opinions.
 \subsection{\gls{dz}}
 \subsubsection{Introduction}
 In the wake of the catastrophic flooding in Ahrtal, significant deficiencies in the hazard prevention and emergency response systems of (\gls {nrw}) were exposed. Critical challenges were observed in the coordination and communication among dispatched units, such as the  \gls{thw} and the fire department. \cite{anna-laraweidingerAhrtalHochwasser2024} Effective communication and organization are crucial for swift and efficient emergency responses.
@@ -301,11 +308,10 @@ Following the enactment of the "Krisenbewältigungsgesetz" in \gls {nrw} in Dece
 
 con terra, in collaboration with IT.NRW, submitted a proposal to develop a solution to these challenges. Their proposed solution is the creation of a digital twin, designed to aggregate and optimally visualize all relevant data for various potential scenarios. This solution aims to integrate multiple datasets from diverse sources, including the \gls{gdinw}, \gls{lvn} and \gls{bkg} \cite{caffier14GDIForumNordrheinWestfalen}.
 
-For me, this project was split into two phases. As I was assigned to another project while working on the digital twin.
+This project were special for me at it was the first time i worked on multiple projects parallel. As i was in the middle of the project assigned to work additionally on the Geosphere Project.
 
 \subsubsection{As-is Status}
-There are currently no central systems in place to handle this kind of task. Mostly there are department specific solutions or even general purpose Systems like QGIS or ArcGIS.
-
+There are currently no central systems in place to handle this kind of task. Mostly there are department specific solutions or even general purpose Systems like QGIS or ArcGIS. However, none of them provides a comprehensive overview of all available datasets.
 
 \subsubsection{Requirements}
 This project, primarily a consultancy initiative aimed at developing a prototype, has a set of flexible yet pivotal requirements. Some requirements were also refined and established in collaboration with fire departments during the project's course. Below is a summary of the key requirements:
@@ -326,7 +332,7 @@ However, it is important to note that not all these requirements will be fully m
 
 
 \subsubsection{Technical Aspects}
-The project used as a base map.apps and was in an agile manner developed. From the requirements just a few were implemented.
+The project is build on a map.apps basis and was in an agile manner developed. From the requirements just a few were implemented.
 
 \subsubsection{My Participation}
 I joined the project in its final stages, focusing on a limited but significant set of tasks. My primary responsibility involved integrating data provided by the fire department. I worked with a \gls{pei} Dataset, which consisted of radio messages containing location data, such as Short \gls{pdu}, Long \gls{pdu}, or STATUS. An example of a short \gls{pdu} is shown in Figure \ref{fig:pei}. The first line of each message includes metadata, like the transmitting and receiving parties, and the message type. The HEX-Code following this metadata can be converted to binary and decoded \cite{etsiETSITS1002007}. I developed a Python script to automate this process, outputting the data as an ESRI shapefile.
@@ -341,7 +347,7 @@ My final task for this phase was to assess the compatibility of Esri's ArcGIS In
 In the new phase, I mainly developed a 2D digital twin. To achieve this, I altered the 2D-3D switch and created a new bundle. The bundle checks system requirements to indicate if the user's device is 3D capable. I also updated the table of contents to include a hint that some layers are exclusively 3D.
 Additionally, I configured and extended the map.apps intro functionality.
 \subsubsection{Project Reflection}
-The project was organized through weekly meetings and a Jira board with tickets. As I joined the project at a later stage, I did not participate as much. At the start of the project, I received no proper onboarding and worked on tickets without context or understanding. I was onboarded for the project after the finalization of the first project phase. Following a month of work on the Geosphere Project, I was reassigned to work on some prototype features for the digital twin. Especially during the second phase, the organization was not optimal as I had a lot of downtime.
+The project was organized through weekly meetings and a Jira board with tickets. As I joined the project at a later stage, I did not participate as much. At the start of the project, I received no proper onboarding and worked on tickets without context or understanding. I was onboarded for the project after the finalization of the first project phase. %Following a month of work on the Geosphere Project, I was reassigned to work on some prototype features for the digital twin. 
 
 At the beginning of this project, I focused on data analysis and deepened my knowledge of PEI Datasets. During this course, I gained a better understanding of HEX and Binary Representation of data, as well as improving my Python skills.  Additionally, I gained a lot of knowledge about \gls{css}, which is heavily utilized in the control tool.%Additionally i learned a lot of map.apps specific things and how the bundle system in the background works. 
 
@@ -360,7 +366,7 @@ For this project, I primarily developed a prototype that can be presented. The p
 The median data was visualized in map.apps and a user interface was developed to provide more intuitive control over the displayed data. In addition, I developed a Python backend and frontend to enable the visualization of time series data in map.apps. The Python backend was based on FastAPI and accessed the datacubes directly. The frontend creates plots on the fly using Plotly. Finally, I created a reporting function that allows the user to generate a report based on the selected data. The data is then aggregated into a \gls{pdf} that can be printed.
 
 \subsubsection{Project Reflection}
-As this was not a real project but an acquisition, I worked alone without any structure or organization.  I was simply given the data, a brief description of the tech stack I should use, and an example of the goal, which was the Climate Atlas of Canada \cite{ClimateAtlasCanada}. Later in the project, I had a few meetings with my team lead to discuss what still needed to be done and what was finished. The project ended unexpectedly for me as I was reassigned to work again at the \gls{dz}.
+As this was not a real project but an acquisition, I worked alone without any structure or organization.  I was simply given the data, a brief description of the tech stack I should use, and an example of the goal, which was the Climate Atlas of Canada \cite{ClimateAtlasCanada}. Later in the project, I had a few meetings with my team lead to discuss what still needed to be done and what was finished. The project concluded once the prototype had reached a stage where the fundamental aspects were presentable to the customer. After that, I was reassigned to work again on the \gls{dz}.
 
 %Firstly, I was introduced to raw climate data, including the \gls{ipcc} Climate models and the \gls{netcdf} representation. However, 
 I gained valuable knowledge from this experience. This was my first time working with raw climate data, including the \gls{ipcc} Climate models, and as a result, I gained a deeper understanding of \gls{netcdf}, including their structure and functionality and the climate models. Furthermore, I acquired a better understanding of map.apps and the bundle system, which was necessary for plotting the time series data.
@@ -370,7 +376,7 @@ I gained valuable knowledge from this experience. This was my first time working
 In the following i will describe a few Communication Aspects which were consistent through the whole internship.
 \begin{description}[]
     \item[Supervisor Communication:] I had bi-weekly meetings with my supervisor. These were scheduled meetings that were 30 minutes long.
-    \item[Teamwork:] I was part of the team, but because teams do not work together on a project, I did not really get to know each team member. Instead, I had regular contact with individuals who worked on the same project.
+    \item[Teamwork:] I was part of the team, but as the Team works on different and multiple projects, I did not really get to know each team member. Instead, I had regular contact with individuals who worked on the same project.
     \item[Professional Network:] As I had already worked for two years prior to my internship at con terra, I did not expand my professional network in any way.
     \item[Conflicts:] There were no conflicts during my internship that involved me.
           %  \item[Communication Skills:]  During my internship, I did not acquire any new communication skills related to working on large-scale projects beyond prototypes. However, I did attend career services seminars where I learned a few new skills.
@@ -391,18 +397,18 @@ Currently, the idea of focusing a Master's thesis on this topic is in its early 
 In the following I will list each Learning Goal and evaluate if it was reached in the course of the internship
 
 \begin{description}[]
-    \item[Enhancement of proficiency in GIS software and infrastructure:]  This learning goal has been fully achieved. I have deepened my expertise in desktop GIS software, such as ArcGIS Pro, as well as on the server side with ArcGIS Enterprise infrastructure. Additionally, I have gained experience in developing web GIS applications using the ArcGIS JavaScript System Developement Kit and map.apps. I have also worked with various dataset types, including \gls{pei} datasets, file geodatabases, and \gls{netcdf}.
-    \item[Further development of coding and data analysis capabilities:] This learning objective was fully achieved. I have developed several different applications in several languages. For example, I developed a complete \Gls{springboot} app with a \Gls{postgres} database. I also developed some Python components and several JavaScript applications for map.apps. In the context of data analysis I have a lot of experience with \gls{netcdf} files and ArcGIS and Python.
+    \item[Enhancement of proficiency in GIS software and infrastructure:]  Achieved. I have deepened my expertise in desktop GIS software, such as ArcGIS Pro, as well as on the server side with ArcGIS Enterprise infrastructure. Additionally, I have gained experience in developing web GIS applications using the ArcGIS JavaScript System Developement Kit and map.apps. I have also worked with various dataset types, including \gls{pei} datasets, file geodatabases, and \gls{netcdf}.
+    \item[Further development of coding and data analysis capabilities:] Achieved. I have developed several different applications in several languages. For example, I developed a complete \Gls{springboot} app with a \Gls{postgres} database. I also developed some Python components and several JavaScript applications for map.apps. In the context of data analysis I have a lot of experience with \gls{netcdf} files and ArcGIS and Python.
     \item[Mastery in data management]: Achieved. As my internship had multiple data analysis parts i learned to data management.
-    \item[Acquisition of knowledge in emerging technology standards:] Partially achieved. Even though I did not learn any cutting edge technology, I did learn a lot of for me new technologies and how to use them. For example: \Gls{vue}(3), \Gls{springboot}, \Gls{nginx} and \Gls{redis}.
-    \item[Familiarization with project management and participation in large-scale projects:] Not achieved. I did not work on any large-scale projects during my internship. This is mainly because my team only works in small scale projects.
+    \item[Acquisition of knowledge in emerging technology standards:] Achieved. I did learn a lot of for me new technologies and how to use them. For example: \Gls{vue}(3), \Gls{springboot}, \Gls{nginx} and \Gls{redis}. Additionally, I gained experience working with large-scale 3D GIS visualizations, such as a 3D mesh for the entire NRW region.
+    \item[Familiarization with project management and participation in large-scale projects:] Achieved. Especially the \gls{dz} is prime example for a large scale project, with a scope of 350 person days
     \item[Development of collaborative skills for team environments:] Achieved. I have had some experience of working with real teams. Especially in the \gls{gd}  \gls{nrw}  project.
     \item[Improvement in effective communication strategies:] Achieved. Primarily learnt by observing the existing communication strategy in the con terra
     \item[Skill development in recognizing correlations between various topics:] Not achieved, as I only visited a few projects, I was not able to make any real connections.
     \item[Improvement in strategizing for problem-solving:] Achieved. As I encountered many different problems, I learned new strategies to solve them.
 \end{description}
 
-I achieved seven out of nine goals, which I still consider a success. The goals that were not met were too abstract unrealistic, or not fitting for con terra. Therefore, one of the most important things I learned from the internship is what to expect and what not to expect when working in the industry.
+I achieved eight out of nine goals, which I  consider a success. The goal that were not met was too abstract and unrealistic. %Therefore, one of the most important things I learned from the internship is what to expect and what not to expect when working in the industry.
 
 \subsection{Conclusions}
 
