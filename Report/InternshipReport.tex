@@ -160,15 +160,16 @@
 \subsection{Company Profile}
 % con terra is a geo-IT company based in Münster, Germany. The company primarily develops customer-specific GeoIT solutions based on the \gls{fme} and various Esri technologies, such as ArcGIS. For this reason, con terra is an Esri Platinum Partner and the main distribution partner of Safe Software for \gls{fme}.
 
-con terra is a German company specializing in Geo-IT solutions. Founded in 1993, it is headquartered in Münster, Germany. The company's primary focus is on integrating intelligent Geo-IT solutions into the IT infrastructures of various customers, both in the private sector and in public administration agencies. This integration enables efficient, cost-effective, and transparent utilization of geoinformation, thereby enhancing the efficiency of company processes.
+con terra is a German company specializing in Geo-IT solutions. Founded in 1993, it is headquartered in Münster, Germany. The company's primary focus is on integrating intelligent Geo-IT solutions into the IT infrastructures of various customers, both in the private sector and in public administration agencies. %This integration enables efficient, cost-effective, and transparent utilization of geoinformation, thereby enhancing the efficiency of company processes.
 
-A key aspect of con terra's operations is its partnership with Esri Inc., through which it backs the ArcGIS technology. The company enhances this technology with additional products and technologies, such as \gls{fme}, and the ERP platform SAP HANA, to meet specific needs. Their cooperation with universities and participation in research and development projects, standardization procedures, and committees of organizations like \gls{iso}, \gls{gdide}, \gls{ogc}, and \gls{inspire}, positions them to both influence and quickly adapt to market trends.
+A key aspect of con terra's operations is its partnership with Esri Inc., through which it backs the ArcGIS technology. The company enhances this technology with additional products and technologies, such as \gls{fme}, and the ERP platform SAP HANA, to meet specific needs. They are also co-founders of the private research organisation 52north. Their cooperation with universities and participation in research and development projects, standardization procedures, and committees of organizations like \gls{iso}, \gls{gdide}, \gls{ogc}, and \gls{inspire}, positions them to both influence and quickly adapt to market trends. 
 
 con terra's own products are primarily map.apps and smart.finder. Each with several add-ons and configurations, for example smart.finder - SDI or map.apps ETL. As an alternative, they are also working on an open source framework called Open Pioneer.
 
 con terra has expertise in multiple sectors, including insurance, natural and environmental resources, telecommunications, trade, SDI and e-government, and real estate. Customer are for example TenneT TSO,  \gls {gd} \gls{nrw}, IT.NRW or the Bundesanstalt für Geowissenschaften und Rohstoffe  (BGR).
 
-The company has a team of over 220 professionals from diverse fields, including computer science, geoscience, mathematics, physics, engineering, and ecology. %con terra prioritises a corporate culture based on values such as responsibility, humanity, individuality, and professionalism, which are integral to its business operations and customer relationships.
+
+The company has a team of over 210 professionals from diverse fields, including computer science, geoscience, mathematics, physics, engineering, and ecology. %con terra prioritises a corporate culture based on values such as responsibility, humanity, individuality, and professionalism, which are integral to its business operations and customer relationships.
 
 %The con terra also has a lot of benefits for its Employees, such as modern offices, a focus on Work-Life Balance with Flexible working hours, providing a company car or a jobbike. They also have huge focus on social events for example: Teamevents, con terra afternoons, Summer festival/Christmas party and a boathouse on the werse which can be rented
 
@@ -182,14 +183,14 @@ The con terra offers several benefits to its employees, including modern offices
 
 
 \subsection{Motivation}
-As a Master's student in Geoinformatics and Spatial Data Science, my internship at con terra is a strategic step in my professional development. I have previous work experience with the company and am familiar with its standing as a leading geospatial software provider in Münster. This familiarity enables me to integrate seamlessly into the team and contribute effectively from the onset. The internship's focus on software development aligns perfectly with my academic training, offering a chance to apply theoretical knowledge in a practical setting. My objective for this internship is to improve my software development skills further. I plan to leverage the opportunities at con terra to enhance my technical expertise in geospatial IT.
+As a Master's student in Geoinformatics and Spatial Data Science, my internship at con terra was a strategic step in my professional development. I have previous work experience with the company and am familiar with its standing as a leading geospatial software provider in Münster. This familiarity enabled me to integrate seamlessly into the team and contribute effectively from the onset. The internship's focus on software development aligns perfectly with my academic training, offering a chance to apply theoretical knowledge in a practical setting. My objective for this internship was to improve my software development skills further. %I plan to leverage the opportunities at con terra to enhance my technical expertise in geospatial IT.
 
 \subsection{Internship Meta Information}
 
 My internship at con terra was in Münster. It started on 01.09.2023 and ended on 31.03.2024. I was part of the Open Data and Copernicus team and the SDI \& E-Government department. I worked an average of 32 hours per week, partly in the office and partly remotely.
 
 \section{Internship Content}
-The projects i worked on in my internship differ from the ones specified in the Learning Agreement. The only project from the learning agreement that i actually participated in were the \gls{gd} \gls{nrw} Meta-\gls{dam} Portal Project. My participation in the Open Pioneer \cite{conterraOpenPioneerTrails2024} project was shifted to the \gls{dz} project as the Open Pioneer Project was not able to provide the necessary technological capabilities (3D visualization with proper administrative CRS support). As an alternative (in order to reach the learning agreement goals) the focus was shifted to the \gls{dz} project.
+The projects i worked on in my internship differ from the ones specified in the Learning Agreement. The only project from the learning agreement that i actually participated in were the \gls{gd} \gls{nrw} Meta-\gls{dam} Portal Project. My participation in the Open Pioneer \cite{conterraOpenPioneerTrails2024} project was shifted to the \gls{dz} project as the Open Pioneer Project was not able to provide the necessary technological capabilities (3D visualization with proper administrative coordinate reference system support). As an alternative (in order to reach the learning agreement goals) the focus was shifted to the \gls{dz} project.
 %were deemed infeasible. Therefore, I participated in the \gls {dz} project and in the Geosphere project.
 %My internship was clearly structured. This took the form three different Projects, each in their own timeframe and with their own requirements.
 
@@ -215,13 +216,13 @@ The new system should eliminate the inadequacies of the old system. Therefore, a
 \begin{itemize}
     \item Keeping the Internal metadata attributes (and adding new ones)
     \item Connection to the GEOportal.NRW
-    \item \gls{crud} Operations for Datasets and associated metadata
+    \item \gls{crud} operations for datasets and associated metadata
     \item  Integrated Permission System
-    \item (Multi-)Edit User-Interface for Metadata
+    \item (Multi-)Edit user-interface for metadata
     \item Sharing data
-    \item Update \gls{exif} and \gls{iptc} Metadata when an update occurs
-    \item Syncing/Translating Internal Metadata to \gls{iso} 19115 \cite{isoISO1911512014}/\gls{iso} 19119 \cite{isoISO191192016}
-    \item Different Search Operations
+    \item Update \gls{exif} and \gls{iptc} metadata when an update occurs
+    \item Syncing/Translating internal metadata to \gls{iso} 19115 \cite{isoISO1911512014}/\gls{iso} 19119 \cite{isoISO191192016}
+    \item Different search operations
 \end{itemize}
 
 
@@ -240,7 +241,7 @@ In the following each software component will be shortly described:
 
 The main part of the System is the smart.finder SDI, which is called gd-nrw-dam-smartfinder-sdi. It consists of several components which are listed below:
 \begin{description}
-    \item[smartfinder-search]: This component is responsible for managing data. It operates on an integrated Apache \Gls{solr} instance to enable the search and filter capabilities of the smartfinder. It also enables features such as full-text search, geo-searches, and filtering for specific attribute values.
+    \item[smartfinder-search]: This component is responsible for managing data. It operates on an integrated  \Gls{solr} instance to enable the search and filter capabilities of the smartfinder. It also enables features such as full-text search, geo-searches, and filtering for specific attribute values.
     \item[smartfinder-editor]: This component represents the smart.editor, which enables the editing of Metadata in compliance with \gls{iso} 19115/\gls{iso} 19119, \gls{inspire}, or \gls{gdide}.
     \item[smartfinder-csw]: This component serves as the \gls{csw} interface, enabling the dissemination of data to other portals, including the GEOportal.NRW.
     \item[smartfinder-sdi]: This component constitutes the user interface for searching and accessing datasets.
@@ -281,13 +282,13 @@ Later on in the project, I developed an additional front-end for a shopping cart
 Subsequently, the decision was made to switch from Python and \Gls{fastapi} to \Gls{springboot} and Java. As a result, I started working on the gd-nrw-dam module, which includes the gd-nrw-datastore module as a prototype. First, I implemented the necessary Spring Data classes and interfaces, and then proceeded to create the basic endpoints for \gls{crud} operations to restore functionality to my frontend. In addition, the project includes the ability to host the front-end on the \Gls{springboot} server. A \Gls{springboot} controller was developed specifically to maintain the functionality of the Vue router component, which controls page routing. The code for this can be found in
 \ref{fig:vue}. It is important to note that all requests matching the applied regex pattern will be redirected to the Vue router. A better option would be to have the entire front end hosted on the \Gls{nginx} web server.
 
-Following that, I developed an \Gls{azure} build pipeline for automated deployment on our test system.  To achieve this, I restructured the project into two separate components: the frontend and the backend, each as its own \Gls{maven} project. %Additionally, there is a pom file for the entire project, enabling Maven to build the project with the complete frontend included in the backend for the pipeline. 
+Following that, I developed an \Gls{azure} DevOps build pipeline for automated deployment on our test system.  To achieve this, I restructured the project into two separate components: the frontend and the backend, each as its own \Gls{maven} project. %Additionally, there is a pom file for the entire project, enabling Maven to build the project with the complete frontend included in the backend for the pipeline. 
 Both components are then references as dependency in a third \Gls{maven} project, enabling \Gls{maven} to build the entire project with the complete frontend included in the backend for the pipeline. The tomcat-maven-plugin was then used for automated deployment to our test machine.
 
 Later, I developed the Sfsdi-API component. Its a additional component for the prototype. In the final project it will be included in the gd-nrw-dam-portal. It is a \Gls{springboot} application that accesses the smartfinder-search module and alters its \Gls{solr} database. During development, I extended the smartfinder-search \Gls{solr} core to handle additional data types beyond \gls{iso}. Moreover, I enhanced the frontend of the smartfinder-sdi, effectively creating the gd-nrw-dam-portal component.
 Also, I created an automated \gls{iso} XML generation.
 
-I have also developed several complex features, including thumbnail generation for images and \gls{pdf}, on-the-fly zipped group downloads, \gls{iptc}/\gls{exif} read and write capabilities, and the deployment of a \Gls{redis} Instance for fast and secure storage. These addition will facilitate the transition from the smartfinder to the new components. Also i deployed an \Gls{nginx} instance as a reverse proxy for basic authentication, with \gls{tls} support.
+I have also developed several other features, including thumbnail generation for images and \gls{pdf}, on-the-fly zipped group downloads, \gls{iptc}/\gls{exif} read and write capabilities, and the deployment of a \Gls{redis} Instance fast storage operations. These addition will facilitate the transition from the smartfinder to the new components. Also i deployed an \Gls{nginx} instance as a reverse proxy for basic authentication, with \gls{tls} support.
 
 Finally, I participated multiple estimation workshops to estimate the complexity for the complete project realization.
 
@@ -349,7 +350,7 @@ Additionally, I configured and extended the map.apps intro functionality.
 \subsubsection{Project Reflection}
 The project was organized through weekly meetings and a Jira board with tickets. As I joined the project at a later stage, I did not participate as much. At the start of the project, I received no proper onboarding and worked on tickets without context or understanding. I was onboarded for the project after the finalization of the first project phase. %Following a month of work on the Geosphere Project, I was reassigned to work on some prototype features for the digital twin. 
 
-At the beginning of this project, I focused on data analysis and deepened my knowledge of PEI Datasets. During this course, I gained a better understanding of HEX and Binary Representation of data, as well as improving my Python skills.  Additionally, I gained a lot of knowledge about \gls{css}, which is heavily utilized in the control tool.%Additionally i learned a lot of map.apps specific things and how the bundle system in the background works. 
+At the beginning of this project, I focused on data analysis and deepened my knowledge of PEI Datasets. During this I gained a better understanding of HEX and Binary Representation of data, as well as improving my Python skills.  Additionally, I gained a lot of knowledge about \gls{css}, which is heavily utilized in the control tool.%Additionally i learned a lot of map.apps specific things and how the bundle system in the background works. 
 
 \subsection{Geosphere}
 \subsubsection{Introduction}
@@ -398,7 +399,7 @@ In the following I will list each Learning Goal and evaluate if it was reached i
 
 \begin{description}[]
     \item[Enhancement of proficiency in GIS software and infrastructure:]  Achieved. I have deepened my expertise in desktop GIS software, such as ArcGIS Pro, as well as on the server side with ArcGIS Enterprise infrastructure. Additionally, I have gained experience in developing web GIS applications using the ArcGIS JavaScript System Developement Kit and map.apps. I have also worked with various dataset types, including \gls{pei} datasets, file geodatabases, and \gls{netcdf}.
-    \item[Further development of coding and data analysis capabilities:] Achieved. I have developed several different applications in several languages. For example, I developed a complete \Gls{springboot} app with a \Gls{postgres} database. I also developed some Python components and several JavaScript applications for map.apps. In the context of data analysis I have a lot of experience with \gls{netcdf} files and ArcGIS and Python.
+    \item[Further development of coding and data analysis capabilities:] Achieved. I have developed several different applications in several languages. For example, I developed a complete \Gls{springboot} app with a \Gls{postgres} database. I also developed some Python components and several JavaScript applications. In the context of data analysis I have a lot of experience with \gls{netcdf} files and ArcGIS and Python.
     \item[Mastery in data management]: Achieved. As my internship had multiple data analysis parts i learned to data management.
     \item[Acquisition of knowledge in emerging technology standards:] Achieved. I did learn a lot of for me new technologies and how to use them. For example: \Gls{vue}(3), \Gls{springboot}, \Gls{nginx} and \Gls{redis}. Additionally, I gained experience working with large-scale 3D GIS visualizations, such as a 3D mesh for the entire NRW region.
     \item[Familiarization with project management and participation in large-scale projects:] Achieved. Especially the \gls{dz} is prime example for a large scale project, with a scope of 350 person days
@@ -408,11 +409,11 @@ In the following I will list each Learning Goal and evaluate if it was reached i
     \item[Improvement in strategizing for problem-solving:] Achieved. As I encountered many different problems, I learned new strategies to solve them.
 \end{description}
 
-I achieved eight out of nine goals, which I  consider a success. The goal that were not met was too abstract and unrealistic. %Therefore, one of the most important things I learned from the internship is what to expect and what not to expect when working in the industry.
+I achieved eight out of nine goals, which I consider a success. The goal that were not met was too abstract and unrealistic. %Therefore, one of the most important things I learned from the internship is what to expect and what not to expect when working in the industry.
 
 \subsection{Conclusions}
 
-My internship at con terra was, in my opinion, a successful first experience in the industry. I gained knowledge in the applied usage of new technologies and deepened my understanding of technologies I was already familiar with. Additionally, I acquired new social skills, such as working in small teams, and further developed my soft skills. During my internship, I had the opportunity to develop my soft skills while working in the office and interacting with colleagues.
+My internship at con terra was, in my opinion, a successful first experience in the industry. I gained knowledge in the applied usage of new technologies and deepened my understanding of technologies I was already familiar with. Additonal during my internship, I had the opportunity to develop my soft skills while working in the office and interacting with colleagues.
 For my future studies, I do not believe that my internship will provide significant benefits. However, as my studies are coming to an end, it is likely that I will remain at con terra.
 
 \clearpage
